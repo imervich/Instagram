@@ -22,6 +22,10 @@
 		2C72061919A3947F009F5A65 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C72061719A3947F009F5A65 /* InfoPlist.strings */; };
 		2C72061B19A3947F009F5A65 /* InstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C72061A19A3947F009F5A65 /* InstagramTests.m */; };
 		2CCC01B019A3B02400B1E30F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCC01AF19A3B02400B1E30F /* Parse.framework */; };
+		2CCC01BA19A3B60100B1E30F /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01B319A3B60100B1E30F /* TPKeyboardAvoidingCollectionView.m */; };
+		2CCC01BB19A3B60100B1E30F /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01B519A3B60100B1E30F /* TPKeyboardAvoidingScrollView.m */; };
+		2CCC01BC19A3B60100B1E30F /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01B719A3B60100B1E30F /* TPKeyboardAvoidingTableView.m */; };
+		2CCC01BD19A3B60100B1E30F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01B919A3B60100B1E30F /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,14 @@
 		2C72061819A3947F009F5A65 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2C72061A19A3947F009F5A65 /* InstagramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstagramTests.m; sourceTree = "<group>"; };
 		2CCC01AF19A3B02400B1E30F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		2CCC01B219A3B60100B1E30F /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
+		2CCC01B319A3B60100B1E30F /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
+		2CCC01B419A3B60100B1E30F /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		2CCC01B519A3B60100B1E30F /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		2CCC01B619A3B60100B1E30F /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
+		2CCC01B719A3B60100B1E30F /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
+		2CCC01B819A3B60100B1E30F /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		2CCC01B919A3B60100B1E30F /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +142,7 @@
 		2C7205F619A3947F009F5A65 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2CCC01B119A3B60100B1E30F /* TPKeyboardAvoiding */,
 				2C7205F719A3947F009F5A65 /* Instagram-Info.plist */,
 				2C7205F819A3947F009F5A65 /* InfoPlist.strings */,
 				2C7205FB19A3947F009F5A65 /* main.m */,
@@ -154,6 +167,21 @@
 				2C72061719A3947F009F5A65 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2CCC01B119A3B60100B1E30F /* TPKeyboardAvoiding */ = {
+			isa = PBXGroup;
+			children = (
+				2CCC01B219A3B60100B1E30F /* TPKeyboardAvoidingCollectionView.h */,
+				2CCC01B319A3B60100B1E30F /* TPKeyboardAvoidingCollectionView.m */,
+				2CCC01B419A3B60100B1E30F /* TPKeyboardAvoidingScrollView.h */,
+				2CCC01B519A3B60100B1E30F /* TPKeyboardAvoidingScrollView.m */,
+				2CCC01B619A3B60100B1E30F /* TPKeyboardAvoidingTableView.h */,
+				2CCC01B719A3B60100B1E30F /* TPKeyboardAvoidingTableView.m */,
+				2CCC01B819A3B60100B1E30F /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				2CCC01B919A3B60100B1E30F /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+			);
+			path = TPKeyboardAvoiding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,7 +282,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C72060619A3947F009F5A65 /* ViewController.m in Sources */,
+				2CCC01BB19A3B60100B1E30F /* TPKeyboardAvoidingScrollView.m in Sources */,
 				2C72060019A3947F009F5A65 /* AppDelegate.m in Sources */,
+				2CCC01BD19A3B60100B1E30F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				2CCC01BC19A3B60100B1E30F /* TPKeyboardAvoidingTableView.m in Sources */,
+				2CCC01BA19A3B60100B1E30F /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				2C7205FC19A3947F009F5A65 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
