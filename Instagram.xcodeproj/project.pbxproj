@@ -21,6 +21,7 @@
 		2C72061119A3947F009F5A65 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C7205F319A3947F009F5A65 /* UIKit.framework */; };
 		2C72061919A3947F009F5A65 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C72061719A3947F009F5A65 /* InfoPlist.strings */; };
 		2C72061B19A3947F009F5A65 /* InstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C72061A19A3947F009F5A65 /* InstagramTests.m */; };
+		2CCC01B019A3B02400B1E30F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCC01AF19A3B02400B1E30F /* Parse.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		2C72061619A3947F009F5A65 /* InstagramTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "InstagramTests-Info.plist"; sourceTree = "<group>"; };
 		2C72061819A3947F009F5A65 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2C72061A19A3947F009F5A65 /* InstagramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstagramTests.m; sourceTree = "<group>"; };
+		2CCC01AF19A3B02400B1E30F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			files = (
 				2C7205F219A3947F009F5A65 /* CoreGraphics.framework in Frameworks */,
 				2C7205F419A3947F009F5A65 /* UIKit.framework in Frameworks */,
+				2CCC01B019A3B02400B1E30F /* Parse.framework in Frameworks */,
 				2C7205F019A3947F009F5A65 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +104,7 @@
 		2C7205EE19A3947F009F5A65 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2CCC01AF19A3B02400B1E30F /* Parse.framework */,
 				2C7205EF19A3947F009F5A65 /* Foundation.framework */,
 				2C7205F119A3947F009F5A65 /* CoreGraphics.framework */,
 				2C7205F319A3947F009F5A65 /* UIKit.framework */,
@@ -376,6 +380,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Instagram/Instagram-Prefix.pch";
 				INFOPLIST_FILE = "Instagram/Instagram-Info.plist";
@@ -389,6 +397,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Instagram/Instagram-Prefix.pch";
 				INFOPLIST_FILE = "Instagram/Instagram-Info.plist";
@@ -456,6 +468,7 @@
 				2C72062019A3947F009F5A65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2C72062119A3947F009F5A65 /* Build configuration list for PBXNativeTarget "InstagramTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +477,7 @@
 				2C72062319A3947F009F5A65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
