@@ -254,7 +254,7 @@
                 <tabBarController definesPresentationContext="YES" id="5YD-8B-SwV" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="dbu-2i-Nx8"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="iBV-oS-2DZ">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -321,10 +321,10 @@
             </objects>
             <point key="canvasLocation" x="571" y="690"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="726-7M-CLI">
             <objects>
-                <viewController id="cgY-FQ-URg" sceneMemberID="viewController">
+                <viewController id="cgY-FQ-URg" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RgT-2w-zBc"/>
                         <viewControllerLayoutGuide type="bottom" id="5N3-0s-S4i"/>
@@ -368,6 +368,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="vda-wb-UcS"/>
                     <connections>
+                        <outlet property="passwordTextField" destination="kSZ-Ju-q9Z" id="pOK-T6-klL"/>
+                        <outlet property="usernameTextField" destination="y6t-Rr-oyH" id="v3L-cl-bIX"/>
                         <segue destination="5YD-8B-SwV" kind="push" identifier="showMainScreenSegue" id="cnR-Lq-MYE"/>
                     </connections>
                 </viewController>
@@ -449,6 +451,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="J1s-aT-Ygg"/>
+        <segue reference="cnR-Lq-MYE"/>
     </inferredMetricsTieBreakers>
 </document>
