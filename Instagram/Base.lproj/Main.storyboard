@@ -92,10 +92,10 @@
             </objects>
             <point key="canvasLocation" x="50" y="688"/>
         </scene>
-        <!--View Controller-->
+        <!--Signup View Controller-->
         <scene sceneID="j4x-HL-iTd">
             <objects>
-                <viewController id="XFf-Tp-Yqb" sceneMemberID="viewController">
+                <viewController id="XFf-Tp-Yqb" customClass="SignupViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="egf-Dd-mqO"/>
                         <viewControllerLayoutGuide type="bottom" id="mwg-hp-x79"/>
@@ -145,6 +145,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="mjr-Yo-pb6"/>
                     <connections>
+                        <outlet property="emailTextField" destination="TeQ-BU-Vme" id="4Rm-0c-k1m"/>
+                        <outlet property="passwordTextField" destination="Wai-tm-9hC" id="XQ1-Si-5yl"/>
+                        <outlet property="usernameTextField" destination="yHq-z7-YXR" id="dhN-uX-4bC"/>
                         <segue destination="5YD-8B-SwV" kind="push" identifier="showMainScreenSegue" id="J1s-aT-Ygg"/>
                     </connections>
                 </viewController>
@@ -446,6 +449,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="kEU-2F-Z9O"/>
+        <segue reference="J1s-aT-Ygg"/>
     </inferredMetricsTieBreakers>
 </document>

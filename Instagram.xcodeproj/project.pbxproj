@@ -26,6 +26,7 @@
 		2CCC01BB19A3B60100B1E30F /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01B519A3B60100B1E30F /* TPKeyboardAvoidingScrollView.m */; };
 		2CCC01BC19A3B60100B1E30F /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01B719A3B60100B1E30F /* TPKeyboardAvoidingTableView.m */; };
 		2CCC01BD19A3B60100B1E30F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01B919A3B60100B1E30F /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		2CCC01C019A3E03500B1E30F /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01BF19A3E03500B1E30F /* SignupViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		2CCC01B719A3B60100B1E30F /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
 		2CCC01B819A3B60100B1E30F /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		2CCC01B919A3B60100B1E30F /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		2CCC01BE19A3E03500B1E30F /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		2CCC01BF19A3E03500B1E30F /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +138,8 @@
 				2C72060519A3947F009F5A65 /* ViewController.m */,
 				2C72060719A3947F009F5A65 /* Images.xcassets */,
 				2C7205F619A3947F009F5A65 /* Supporting Files */,
+				2CCC01BE19A3E03500B1E30F /* SignupViewController.h */,
+				2CCC01BF19A3E03500B1E30F /* SignupViewController.m */,
 			);
 			path = Instagram;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 				2CCC01BD19A3B60100B1E30F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				2CCC01BC19A3B60100B1E30F /* TPKeyboardAvoidingTableView.m in Sources */,
 				2CCC01BA19A3B60100B1E30F /* TPKeyboardAvoidingCollectionView.m in Sources */,
+				2CCC01C019A3E03500B1E30F /* SignupViewController.m in Sources */,
 				2C7205FC19A3947F009F5A65 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
