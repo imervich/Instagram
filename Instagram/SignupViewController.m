@@ -8,6 +8,8 @@
 
 #import "SignupViewController.h"
 
+#define showTabScreenSegue @"showTabScreenSegue"
+
 @interface SignupViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
@@ -22,6 +24,12 @@
 {
     [super viewDidLoad];
 
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	self.navigationController.navigationBarHidden = NO;
 }
 
 @end

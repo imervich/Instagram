@@ -8,6 +8,8 @@
 
 #import "LoginViewController.h"
 
+#define showTabScreenSegue @"showTabScreenSegue"
+
 @interface LoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
@@ -21,6 +23,12 @@
 {
     [super viewDidLoad];
 
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	self.navigationController.navigationBarHidden = NO;
 }
 
 @end

@@ -14,7 +14,7 @@
 		2C7205FC19A3947F009F5A65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7205FB19A3947F009F5A65 /* main.m */; };
 		2C72060019A3947F009F5A65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7205FF19A3947F009F5A65 /* AppDelegate.m */; };
 		2C72060319A3947F009F5A65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C72060119A3947F009F5A65 /* Main.storyboard */; };
-		2C72060619A3947F009F5A65 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C72060519A3947F009F5A65 /* ViewController.m */; };
+		2C72060619A3947F009F5A65 /* LoginTypeSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C72060519A3947F009F5A65 /* LoginTypeSelectionViewController.m */; };
 		2C72060819A3947F009F5A65 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C72060719A3947F009F5A65 /* Images.xcassets */; };
 		2C72060F19A3947F009F5A65 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C72060E19A3947F009F5A65 /* XCTest.framework */; };
 		2C72061019A3947F009F5A65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C7205EF19A3947F009F5A65 /* Foundation.framework */; };
@@ -31,6 +31,7 @@
 		2CCC01C619A3E1D400B1E30F /* FacebookLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01C519A3E1D400B1E30F /* FacebookLoginViewController.m */; };
 		2CCC01C919A3E2AA00B1E30F /* PostsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01C819A3E2AA00B1E30F /* PostsFeedViewController.m */; };
 		2CCC01CC19A3E30B00B1E30F /* PostsFeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01CB19A3E30B00B1E30F /* PostsFeedTableViewCell.m */; };
+		2CCC01CF19A3F00700B1E30F /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01CE19A3F00700B1E30F /* TabBarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +56,8 @@
 		2C7205FE19A3947F009F5A65 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2C7205FF19A3947F009F5A65 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2C72060219A3947F009F5A65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2C72060419A3947F009F5A65 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2C72060519A3947F009F5A65 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2C72060419A3947F009F5A65 /* LoginTypeSelectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginTypeSelectionViewController.h; sourceTree = "<group>"; };
+		2C72060519A3947F009F5A65 /* LoginTypeSelectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginTypeSelectionViewController.m; sourceTree = "<group>"; };
 		2C72060719A3947F009F5A65 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2C72060D19A3947F009F5A65 /* InstagramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C72060E19A3947F009F5A65 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -78,10 +79,12 @@
 		2CCC01C219A3E14600B1E30F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		2CCC01C419A3E1D400B1E30F /* FacebookLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookLoginViewController.h; sourceTree = "<group>"; };
 		2CCC01C519A3E1D400B1E30F /* FacebookLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookLoginViewController.m; sourceTree = "<group>"; };
-		2CCC01C719A3E2AA00B1E30F /* PostsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostsFeedViewController.h; path = Instagram/PostsFeedViewController.h; sourceTree = "<group>"; };
-		2CCC01C819A3E2AA00B1E30F /* PostsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostsFeedViewController.m; path = Instagram/PostsFeedViewController.m; sourceTree = "<group>"; };
+		2CCC01C719A3E2AA00B1E30F /* PostsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsFeedViewController.h; sourceTree = "<group>"; };
+		2CCC01C819A3E2AA00B1E30F /* PostsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsFeedViewController.m; sourceTree = "<group>"; };
 		2CCC01CA19A3E30B00B1E30F /* PostsFeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsFeedTableViewCell.h; sourceTree = "<group>"; };
 		2CCC01CB19A3E30B00B1E30F /* PostsFeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsFeedTableViewCell.m; sourceTree = "<group>"; };
+		2CCC01CD19A3F00700B1E30F /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		2CCC01CE19A3F00700B1E30F /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +119,6 @@
 				2C72061419A3947F009F5A65 /* InstagramTests */,
 				2C7205EE19A3947F009F5A65 /* Frameworks */,
 				2C7205ED19A3947F009F5A65 /* Products */,
-				2CCC01C719A3E2AA00B1E30F /* PostsFeedViewController.h */,
-				2CCC01C819A3E2AA00B1E30F /* PostsFeedViewController.m */,
 			);
 			sourceTree = "<group>";
 		};
@@ -145,21 +146,15 @@
 		2C7205F519A3947F009F5A65 /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				2CCC01D119A3F08000B1E30F /* Login and sign up */,
+				2CCC01D019A3F07500B1E30F /* Posts feed */,
 				2C7205FE19A3947F009F5A65 /* AppDelegate.h */,
 				2C7205FF19A3947F009F5A65 /* AppDelegate.m */,
 				2C72060119A3947F009F5A65 /* Main.storyboard */,
-				2C72060419A3947F009F5A65 /* ViewController.h */,
-				2C72060519A3947F009F5A65 /* ViewController.m */,
+				2CCC01CD19A3F00700B1E30F /* TabBarViewController.h */,
+				2CCC01CE19A3F00700B1E30F /* TabBarViewController.m */,
 				2C72060719A3947F009F5A65 /* Images.xcassets */,
 				2C7205F619A3947F009F5A65 /* Supporting Files */,
-				2CCC01BE19A3E03500B1E30F /* SignupViewController.h */,
-				2CCC01BF19A3E03500B1E30F /* SignupViewController.m */,
-				2CCC01C119A3E14600B1E30F /* LoginViewController.h */,
-				2CCC01C219A3E14600B1E30F /* LoginViewController.m */,
-				2CCC01C419A3E1D400B1E30F /* FacebookLoginViewController.h */,
-				2CCC01C519A3E1D400B1E30F /* FacebookLoginViewController.m */,
-				2CCC01CA19A3E30B00B1E30F /* PostsFeedTableViewCell.h */,
-				2CCC01CB19A3E30B00B1E30F /* PostsFeedTableViewCell.m */,
 			);
 			path = Instagram;
 			sourceTree = "<group>";
@@ -207,6 +202,32 @@
 				2CCC01B919A3B60100B1E30F /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
 			);
 			path = TPKeyboardAvoiding;
+			sourceTree = "<group>";
+		};
+		2CCC01D019A3F07500B1E30F /* Posts feed */ = {
+			isa = PBXGroup;
+			children = (
+				2CCC01C719A3E2AA00B1E30F /* PostsFeedViewController.h */,
+				2CCC01C819A3E2AA00B1E30F /* PostsFeedViewController.m */,
+				2CCC01CA19A3E30B00B1E30F /* PostsFeedTableViewCell.h */,
+				2CCC01CB19A3E30B00B1E30F /* PostsFeedTableViewCell.m */,
+			);
+			name = "Posts feed";
+			sourceTree = "<group>";
+		};
+		2CCC01D119A3F08000B1E30F /* Login and sign up */ = {
+			isa = PBXGroup;
+			children = (
+				2C72060419A3947F009F5A65 /* LoginTypeSelectionViewController.h */,
+				2C72060519A3947F009F5A65 /* LoginTypeSelectionViewController.m */,
+				2CCC01BE19A3E03500B1E30F /* SignupViewController.h */,
+				2CCC01BF19A3E03500B1E30F /* SignupViewController.m */,
+				2CCC01C119A3E14600B1E30F /* LoginViewController.h */,
+				2CCC01C219A3E14600B1E30F /* LoginViewController.m */,
+				2CCC01C419A3E1D400B1E30F /* FacebookLoginViewController.h */,
+				2CCC01C519A3E1D400B1E30F /* FacebookLoginViewController.m */,
+			);
+			name = "Login and sign up";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,8 +327,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C72060619A3947F009F5A65 /* ViewController.m in Sources */,
+				2C72060619A3947F009F5A65 /* LoginTypeSelectionViewController.m in Sources */,
 				2CCC01BB19A3B60100B1E30F /* TPKeyboardAvoidingScrollView.m in Sources */,
+				2CCC01CF19A3F00700B1E30F /* TabBarViewController.m in Sources */,
 				2C72060019A3947F009F5A65 /* AppDelegate.m in Sources */,
 				2CCC01BD19A3B60100B1E30F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				2CCC01BC19A3B60100B1E30F /* TPKeyboardAvoidingTableView.m in Sources */,

@@ -8,6 +8,8 @@
 
 #import "FacebookLoginViewController.h"
 
+#define showTabScreenSegue @"showTabScreenSegue"
+
 @interface FacebookLoginViewController ()
 
 @end
@@ -18,6 +20,12 @@
 {
     [super viewDidLoad];
 
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	self.navigationController.navigationBarHidden = NO;
 }
 
 @end
