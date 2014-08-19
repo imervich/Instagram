@@ -28,6 +28,7 @@
 		2CCC01BD19A3B60100B1E30F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01B919A3B60100B1E30F /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		2CCC01C019A3E03500B1E30F /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01BF19A3E03500B1E30F /* SignupViewController.m */; };
 		2CCC01C319A3E14600B1E30F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01C219A3E14600B1E30F /* LoginViewController.m */; };
+		2CCC01C619A3E1D400B1E30F /* FacebookLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01C519A3E1D400B1E30F /* FacebookLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		2CCC01BF19A3E03500B1E30F /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		2CCC01C119A3E14600B1E30F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		2CCC01C219A3E14600B1E30F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		2CCC01C419A3E1D400B1E30F /* FacebookLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookLoginViewController.h; sourceTree = "<group>"; };
+		2CCC01C519A3E1D400B1E30F /* FacebookLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookLoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +148,8 @@
 				2CCC01BF19A3E03500B1E30F /* SignupViewController.m */,
 				2CCC01C119A3E14600B1E30F /* LoginViewController.h */,
 				2CCC01C219A3E14600B1E30F /* LoginViewController.m */,
+				2CCC01C419A3E1D400B1E30F /* FacebookLoginViewController.h */,
+				2CCC01C519A3E1D400B1E30F /* FacebookLoginViewController.m */,
 			);
 			path = Instagram;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 				2CCC01BD19A3B60100B1E30F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				2CCC01BC19A3B60100B1E30F /* TPKeyboardAvoidingTableView.m in Sources */,
 				2CCC01C319A3E14600B1E30F /* LoginViewController.m in Sources */,
+				2CCC01C619A3E1D400B1E30F /* FacebookLoginViewController.m in Sources */,
 				2CCC01BA19A3B60100B1E30F /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				2CCC01C019A3E03500B1E30F /* SignupViewController.m in Sources */,
 				2C7205FC19A3947F009F5A65 /* main.m in Sources */,

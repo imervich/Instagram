@@ -291,10 +291,10 @@
             </objects>
             <point key="canvasLocation" x="1671" y="955"/>
         </scene>
-        <!--View Controller-->
+        <!--Facebook Login View Controller-->
         <scene sceneID="a7h-A2-0Cq">
             <objects>
-                <viewController id="YrL-sg-sNm" sceneMemberID="viewController">
+                <viewController id="YrL-sg-sNm" customClass="FacebookLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="P1M-Sg-0xw"/>
                         <viewControllerLayoutGuide type="bottom" id="geQ-jn-0T7"/>
@@ -451,6 +451,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="cnR-Lq-MYE"/>
+        <segue reference="kEU-2F-Z9O"/>
     </inferredMetricsTieBreakers>
 </document>
