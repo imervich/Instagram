@@ -29,6 +29,8 @@
 		2CCC01C019A3E03500B1E30F /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01BF19A3E03500B1E30F /* SignupViewController.m */; };
 		2CCC01C319A3E14600B1E30F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01C219A3E14600B1E30F /* LoginViewController.m */; };
 		2CCC01C619A3E1D400B1E30F /* FacebookLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01C519A3E1D400B1E30F /* FacebookLoginViewController.m */; };
+		2CCC01C919A3E2AA00B1E30F /* PostsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01C819A3E2AA00B1E30F /* PostsFeedViewController.m */; };
+		2CCC01CC19A3E30B00B1E30F /* PostsFeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01CB19A3E30B00B1E30F /* PostsFeedTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,10 @@
 		2CCC01C219A3E14600B1E30F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		2CCC01C419A3E1D400B1E30F /* FacebookLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookLoginViewController.h; sourceTree = "<group>"; };
 		2CCC01C519A3E1D400B1E30F /* FacebookLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookLoginViewController.m; sourceTree = "<group>"; };
+		2CCC01C719A3E2AA00B1E30F /* PostsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostsFeedViewController.h; path = Instagram/PostsFeedViewController.h; sourceTree = "<group>"; };
+		2CCC01C819A3E2AA00B1E30F /* PostsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostsFeedViewController.m; path = Instagram/PostsFeedViewController.m; sourceTree = "<group>"; };
+		2CCC01CA19A3E30B00B1E30F /* PostsFeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsFeedTableViewCell.h; sourceTree = "<group>"; };
+		2CCC01CB19A3E30B00B1E30F /* PostsFeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsFeedTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,8 @@
 				2C72061419A3947F009F5A65 /* InstagramTests */,
 				2C7205EE19A3947F009F5A65 /* Frameworks */,
 				2C7205ED19A3947F009F5A65 /* Products */,
+				2CCC01C719A3E2AA00B1E30F /* PostsFeedViewController.h */,
+				2CCC01C819A3E2AA00B1E30F /* PostsFeedViewController.m */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,6 +158,8 @@
 				2CCC01C219A3E14600B1E30F /* LoginViewController.m */,
 				2CCC01C419A3E1D400B1E30F /* FacebookLoginViewController.h */,
 				2CCC01C519A3E1D400B1E30F /* FacebookLoginViewController.m */,
+				2CCC01CA19A3E30B00B1E30F /* PostsFeedTableViewCell.h */,
+				2CCC01CB19A3E30B00B1E30F /* PostsFeedTableViewCell.m */,
 			);
 			path = Instagram;
 			sourceTree = "<group>";
@@ -305,7 +315,9 @@
 				2CCC01C619A3E1D400B1E30F /* FacebookLoginViewController.m in Sources */,
 				2CCC01BA19A3B60100B1E30F /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				2CCC01C019A3E03500B1E30F /* SignupViewController.m in Sources */,
+				2CCC01C919A3E2AA00B1E30F /* PostsFeedViewController.m in Sources */,
 				2C7205FC19A3947F009F5A65 /* main.m in Sources */,
+				2CCC01CC19A3E30B00B1E30F /* PostsFeedTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
