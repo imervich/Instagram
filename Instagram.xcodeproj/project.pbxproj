@@ -38,6 +38,7 @@
 		43CC874619A4ECB400856845 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CC874519A4ECB400856845 /* FacebookSDK.framework */; };
 		43CC874C19A4F8A000856845 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 43CC874B19A4F8A000856845 /* Comment.m */; };
 		43CC874E19A5094700856845 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CC874D19A5094700856845 /* Parse.framework */; };
+		43CC874F19A50E0400856845 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CC874D19A5094700856845 /* Parse.framework */; };
 		F90C9F1B19A44CC90017B73F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90C9F1A19A44CC90017B73F /* Accounts.framework */; };
 		F90C9F1D19A44CD30017B73F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90C9F1C19A44CD30017B73F /* AdSupport.framework */; };
 		F90C9F1F19A44CE40017B73F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90C9F1E19A44CE30017B73F /* Social.framework */; };
@@ -157,6 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43CC874F19A50E0400856845 /* Parse.framework in Frameworks */,
 				2C72060F19A3947F009F5A65 /* XCTest.framework in Frameworks */,
 				2C72061119A3947F009F5A65 /* UIKit.framework in Frameworks */,
 				2C72061019A3947F009F5A65 /* Foundation.framework in Frameworks */,
@@ -619,6 +621,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Instagram/Instagram-Prefix.pch";
@@ -641,6 +644,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Instagram/Instagram-Prefix.pch";
