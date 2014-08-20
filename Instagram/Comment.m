@@ -1,29 +1,25 @@
 //
-//  Photo.m
+//  Comment.m
 //  Instagram
 //
-//  Created by Gustavo Parrado on 19/8/14.
+//  Created by Gustavo Parrado on 20/8/14.
 //  Copyright (c) 2014 Mobile Makers. All rights reserved.
 //
 
-#import "Photo.h"
+#import "Comment.h"
 #import <Parse/PFObject+Subclass.h>
 
-@implementation Photo
+@implementation Comment
 
-@dynamic photoID;
+@dynamic text;
 @dynamic userID;
-@dynamic url;
-@dynamic image;
-@dynamic likes;
-@dynamic location;
+@dynamic photoID;
 
 + (void)load {
     [self registerSubclass];
 }
 
 + (NSString *)parseClassName {
-    return @"Photo";
+    return @"Comment";
 }
-
 @end

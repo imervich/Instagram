@@ -7,7 +7,6 @@
 //
 
 #import "UserCredentials.h"
-#import <Parse/Parse.h>
 
 @implementation UserCredentials
 
@@ -24,9 +23,8 @@
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
-            // create user object
-            User *user = [[User alloc] init];
-            user.username = username;
+            // move user object to a Singleton to access globally?
+            
         } else {
             NSString *errorString = [error userInfo][@"error"];
             NSLog(@"%@",errorString);
