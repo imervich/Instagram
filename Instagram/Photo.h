@@ -6,16 +6,14 @@
 //  Copyright (c) 2014 Mobile Makers. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
-@interface Photo : NSObject
+@interface Photo : PFObject<PFSubclassing>
++ (NSString *)parseClassName;
 
 @property int photoID;
 @property int userID;
-@property NSString *url;
-@property UIImage *image;
+@property (retain) NSString *url;
+@property (retain) UIImage *image;
 @property int likes;
-@property double latitude;
-@property double longitude;
+@property (retain) PFGeoPoint *location;
 
 @end

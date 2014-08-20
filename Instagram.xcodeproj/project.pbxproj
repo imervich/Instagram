@@ -22,7 +22,6 @@
 		2C72061919A3947F009F5A65 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C72061719A3947F009F5A65 /* InfoPlist.strings */; };
 		2C72061B19A3947F009F5A65 /* InstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C72061A19A3947F009F5A65 /* InstagramTests.m */; };
 		2CBAC8C719A454CA00D4C88F /* ExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBAC8C619A454CA00D4C88F /* ExploreViewController.m */; };
-		2CCC01B019A3B02400B1E30F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCC01AF19A3B02400B1E30F /* Parse.framework */; };
 		2CCC01BA19A3B60100B1E30F /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01B319A3B60100B1E30F /* TPKeyboardAvoidingCollectionView.m */; };
 		2CCC01BB19A3B60100B1E30F /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01B519A3B60100B1E30F /* TPKeyboardAvoidingScrollView.m */; };
 		2CCC01BC19A3B60100B1E30F /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01B719A3B60100B1E30F /* TPKeyboardAvoidingTableView.m */; };
@@ -34,9 +33,10 @@
 		2CCC01CC19A3E30B00B1E30F /* PostsFeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01CB19A3E30B00B1E30F /* PostsFeedTableViewCell.m */; };
 		2CCC01CF19A3F00700B1E30F /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01CE19A3F00700B1E30F /* TabBarViewController.m */; };
 		4322F49019A4475D002C1FD5 /* UserCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 4322F48F19A4475D002C1FD5 /* UserCredentials.m */; };
-		4322F49319A44AB3002C1FD5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4322F49219A44AB3002C1FD5 /* User.m */; };
 		4322F49619A44CB4002C1FD5 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4322F49519A44CB4002C1FD5 /* Photo.m */; };
 		43CC874619A4ECB400856845 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CC874519A4ECB400856845 /* FacebookSDK.framework */; };
+		43CC874C19A4F8A000856845 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 43CC874B19A4F8A000856845 /* Comment.m */; };
+		43CC874E19A5094700856845 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CC874D19A5094700856845 /* Parse.framework */; };
 		F90C9F1B19A44CC90017B73F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90C9F1A19A44CC90017B73F /* Accounts.framework */; };
 		F90C9F1D19A44CD30017B73F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90C9F1C19A44CD30017B73F /* AdSupport.framework */; };
 		F90C9F1F19A44CE40017B73F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90C9F1E19A44CE30017B73F /* Social.framework */; };
@@ -83,7 +83,6 @@
 		2C72061A19A3947F009F5A65 /* InstagramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstagramTests.m; sourceTree = "<group>"; };
 		2CBAC8C519A454CA00D4C88F /* ExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExploreViewController.h; sourceTree = "<group>"; };
 		2CBAC8C619A454CA00D4C88F /* ExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExploreViewController.m; sourceTree = "<group>"; };
-		2CCC01AF19A3B02400B1E30F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		2CCC01B219A3B60100B1E30F /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
 		2CCC01B319A3B60100B1E30F /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
 		2CCC01B419A3B60100B1E30F /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
@@ -106,11 +105,12 @@
 		2CCC01CE19A3F00700B1E30F /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		4322F48E19A4475D002C1FD5 /* UserCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCredentials.h; sourceTree = "<group>"; };
 		4322F48F19A4475D002C1FD5 /* UserCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCredentials.m; sourceTree = "<group>"; };
-		4322F49119A44AB3002C1FD5 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		4322F49219A44AB3002C1FD5 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		4322F49419A44CB4002C1FD5 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		4322F49519A44CB4002C1FD5 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		43CC874519A4ECB400856845 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		43CC874A19A4F8A000856845 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		43CC874B19A4F8A000856845 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		43CC874D19A5094700856845 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		F90C9F1A19A44CC90017B73F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		F90C9F1C19A44CD30017B73F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		F90C9F1E19A44CE30017B73F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -130,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43CC874E19A5094700856845 /* Parse.framework in Frameworks */,
 				43CC874619A4ECB400856845 /* FacebookSDK.framework in Frameworks */,
 				2C7205F219A3947F009F5A65 /* CoreGraphics.framework in Frameworks */,
 				F90C9F3119A44D590017B73F /* Security.framework in Frameworks */,
@@ -145,7 +146,6 @@
 				F90C9F1D19A44CD30017B73F /* AdSupport.framework in Frameworks */,
 				F90C9F1B19A44CC90017B73F /* Accounts.framework in Frameworks */,
 				2C7205F419A3947F009F5A65 /* UIKit.framework in Frameworks */,
-				2CCC01B019A3B02400B1E30F /* Parse.framework in Frameworks */,
 				2C7205F019A3947F009F5A65 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,6 +185,7 @@
 		2C7205EE19A3947F009F5A65 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				43CC874D19A5094700856845 /* Parse.framework */,
 				43CC874519A4ECB400856845 /* FacebookSDK.framework */,
 				F90C9F3019A44D590017B73F /* Security.framework */,
 				F90C9F2E19A44D510017B73F /* libz.dylib */,
@@ -198,7 +199,6 @@
 				F90C9F1E19A44CE30017B73F /* Social.framework */,
 				F90C9F1C19A44CD30017B73F /* AdSupport.framework */,
 				F90C9F1A19A44CC90017B73F /* Accounts.framework */,
-				2CCC01AF19A3B02400B1E30F /* Parse.framework */,
 				2C7205EF19A3947F009F5A65 /* Foundation.framework */,
 				2C7205F119A3947F009F5A65 /* CoreGraphics.framework */,
 				2C7205F319A3947F009F5A65 /* UIKit.framework */,
@@ -310,10 +310,10 @@
 			children = (
 				4322F48E19A4475D002C1FD5 /* UserCredentials.h */,
 				4322F48F19A4475D002C1FD5 /* UserCredentials.m */,
-				4322F49119A44AB3002C1FD5 /* User.h */,
-				4322F49219A44AB3002C1FD5 /* User.m */,
 				4322F49419A44CB4002C1FD5 /* Photo.h */,
 				4322F49519A44CB4002C1FD5 /* Photo.m */,
+				43CC874A19A4F8A000856845 /* Comment.h */,
+				43CC874B19A4F8A000856845 /* Comment.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -419,8 +419,8 @@
 				2CCC01BB19A3B60100B1E30F /* TPKeyboardAvoidingScrollView.m in Sources */,
 				2CCC01CF19A3F00700B1E30F /* TabBarViewController.m in Sources */,
 				4322F49019A4475D002C1FD5 /* UserCredentials.m in Sources */,
+				43CC874C19A4F8A000856845 /* Comment.m in Sources */,
 				2C72060019A3947F009F5A65 /* AppDelegate.m in Sources */,
-				4322F49319A44AB3002C1FD5 /* User.m in Sources */,
 				2CCC01BD19A3B60100B1E30F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				2CCC01BC19A3B60100B1E30F /* TPKeyboardAvoidingTableView.m in Sources */,
 				2CCC01C319A3E14600B1E30F /* LoginViewController.m in Sources */,
@@ -501,7 +501,9 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -539,6 +541,8 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

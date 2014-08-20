@@ -9,7 +9,6 @@
 #import "FacebookLoginViewController.h"
 #import "UserCredentials.h"
 #import "TabBarViewController.h"
-#import <Parse/Parse.h>
 #import <FacebookSDK/FacebookSDK.h>
 
 #define showTabScreenSegue @"showTabScreenSegue"

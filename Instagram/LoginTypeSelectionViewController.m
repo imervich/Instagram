@@ -7,7 +7,6 @@
 //
 
 #import "LoginTypeSelectionViewController.h"
-#import <Parse/Parse.h>
 
 #define showTabScreenSegue @"showTabScreenSegue"
 
