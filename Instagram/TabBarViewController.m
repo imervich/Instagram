@@ -8,6 +8,8 @@
 
 #import "TabBarViewController.h"
 
+#define showLoginOptionsScreenSegue @"showLoginOptionsScreenSegue"
+
 @interface TabBarViewController ()
 
 @end
@@ -19,10 +21,14 @@
     [super viewDidLoad];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
-	[super viewWillAppear:animated];
-	self.navigationController.navigationBarHidden = YES;
+	[super viewDidAppear:animated];
+
+	// check if user is logged in, if not, perform segue showLoginOptionsScreenSegue
+	if (![PFUser currentUser] || ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+		[self performSegueWithIdentifier:showLoginOptionsScreenSegue sender:self];
+    }
 }
 
 @end

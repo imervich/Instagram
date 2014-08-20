@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C63283719A4EF4D0055AB5B /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C63283619A4EF4D0055AB5B /* CameraViewController.m */; };
+		2C63283B19A4F7490055AB5B /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C63283A19A4F7490055AB5B /* UserProfileViewController.m */; };
 		2C7205F019A3947F009F5A65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C7205EF19A3947F009F5A65 /* Foundation.framework */; };
 		2C7205F219A3947F009F5A65 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C7205F119A3947F009F5A65 /* CoreGraphics.framework */; };
 		2C7205F419A3947F009F5A65 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C7205F319A3947F009F5A65 /* UIKit.framework */; };
@@ -28,7 +30,6 @@
 		2CCC01BD19A3B60100B1E30F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01B919A3B60100B1E30F /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		2CCC01C019A3E03500B1E30F /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01BF19A3E03500B1E30F /* SignupViewController.m */; };
 		2CCC01C319A3E14600B1E30F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01C219A3E14600B1E30F /* LoginViewController.m */; };
-		2CCC01C619A3E1D400B1E30F /* FacebookLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01C519A3E1D400B1E30F /* FacebookLoginViewController.m */; };
 		2CCC01C919A3E2AA00B1E30F /* PostsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01C819A3E2AA00B1E30F /* PostsFeedViewController.m */; };
 		2CCC01CC19A3E30B00B1E30F /* PostsFeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01CB19A3E30B00B1E30F /* PostsFeedTableViewCell.m */; };
 		2CCC01CF19A3F00700B1E30F /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01CE19A3F00700B1E30F /* TabBarViewController.m */; };
@@ -62,6 +63,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C63283519A4EF4D0055AB5B /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		2C63283619A4EF4D0055AB5B /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		2C63283919A4F7490055AB5B /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
+		2C63283A19A4F7490055AB5B /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
 		2C7205EC19A3947F009F5A65 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C7205EF19A3947F009F5A65 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2C7205F119A3947F009F5A65 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -95,8 +100,6 @@
 		2CCC01BF19A3E03500B1E30F /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		2CCC01C119A3E14600B1E30F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		2CCC01C219A3E14600B1E30F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		2CCC01C419A3E1D400B1E30F /* FacebookLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookLoginViewController.h; sourceTree = "<group>"; };
-		2CCC01C519A3E1D400B1E30F /* FacebookLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookLoginViewController.m; sourceTree = "<group>"; };
 		2CCC01C719A3E2AA00B1E30F /* PostsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsFeedViewController.h; sourceTree = "<group>"; };
 		2CCC01C819A3E2AA00B1E30F /* PostsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsFeedViewController.m; sourceTree = "<group>"; };
 		2CCC01CA19A3E30B00B1E30F /* PostsFeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsFeedTableViewCell.h; sourceTree = "<group>"; };
@@ -163,6 +166,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C63283419A4EF1E0055AB5B /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				2C63283519A4EF4D0055AB5B /* CameraViewController.h */,
+				2C63283619A4EF4D0055AB5B /* CameraViewController.m */,
+			);
+			name = Camera;
+			sourceTree = "<group>";
+		};
+		2C63283819A4F7350055AB5B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				2C63283919A4F7490055AB5B /* UserProfileViewController.h */,
+				2C63283A19A4F7490055AB5B /* UserProfileViewController.m */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
 		2C7205E319A3947F009F5A65 = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +235,8 @@
 				2CCC01D119A3F08000B1E30F /* Login and sign up */,
 				2CCC01D019A3F07500B1E30F /* Posts feed */,
 				2CBAC8C819A454E100D4C88F /* Explore */,
+				2C63283419A4EF1E0055AB5B /* Camera */,
+				2C63283819A4F7350055AB5B /* Profile */,
 				2C7205FE19A3947F009F5A65 /* AppDelegate.h */,
 				2C7205FF19A3947F009F5A65 /* AppDelegate.m */,
 				2C72060119A3947F009F5A65 /* Main.storyboard */,
@@ -299,8 +322,6 @@
 				2CCC01BF19A3E03500B1E30F /* SignupViewController.m */,
 				2CCC01C119A3E14600B1E30F /* LoginViewController.h */,
 				2CCC01C219A3E14600B1E30F /* LoginViewController.m */,
-				2CCC01C419A3E1D400B1E30F /* FacebookLoginViewController.h */,
-				2CCC01C519A3E1D400B1E30F /* FacebookLoginViewController.m */,
 			);
 			name = "Login and sign up";
 			sourceTree = "<group>";
@@ -424,12 +445,13 @@
 				2CCC01BD19A3B60100B1E30F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				2CCC01BC19A3B60100B1E30F /* TPKeyboardAvoidingTableView.m in Sources */,
 				2CCC01C319A3E14600B1E30F /* LoginViewController.m in Sources */,
-				2CCC01C619A3E1D400B1E30F /* FacebookLoginViewController.m in Sources */,
+				2C63283B19A4F7490055AB5B /* UserProfileViewController.m in Sources */,
 				2CCC01BA19A3B60100B1E30F /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				2CCC01C019A3E03500B1E30F /* SignupViewController.m in Sources */,
 				4322F49619A44CB4002C1FD5 /* Photo.m in Sources */,
 				2CCC01C919A3E2AA00B1E30F /* PostsFeedViewController.m in Sources */,
 				2CBAC8C719A454CA00D4C88F /* ExploreViewController.m in Sources */,
+				2C63283719A4EF4D0055AB5B /* CameraViewController.m in Sources */,
 				2C7205FC19A3947F009F5A65 /* main.m in Sources */,
 				2CCC01CC19A3E30B00B1E30F /* PostsFeedTableViewCell.m in Sources */,
 			);
