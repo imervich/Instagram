@@ -21,29 +21,12 @@
 {
     [super viewDidLoad];
 
-    PFUser *user = [PFUser user];
-    user.username = @"Gustavo";
-    user.password = @"my pass";
-    user.email = @"gus@example.com";
-    
-    // other fields can be set if you want to save more information
-    user[@"device"] = @"moto-x";
-    user[@"prefered_os"] = @"android";
-    
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            // Hooray! Let them use the app now.
-        } else {
-            NSString *errorString = [error userInfo][@"error"];
-            NSLog(@"%@",errorString);
-        }
-    }];
 	// TODO:
 	// if user is not logged in, perform segue showTabScreenSegue
-//	BOOL loggedIn = YES;
-//	if (loggedIn) {
-//		[self performSegueWithIdentifier:showTabScreenSegue sender:self];
-//	}
+	BOOL loggedIn = YES;
+	if (loggedIn) {
+		[self performSegueWithIdentifier:showTabScreenSegue sender:self];
+	}
 	
 }
 

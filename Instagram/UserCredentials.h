@@ -18,5 +18,5 @@
 
 
 
--(void)signUp:(NSString*)email password:(NSString*)password;
+-(void)signUp:(NSString*)username email:(NSString*)email password:(NSString*)password;
 @end
