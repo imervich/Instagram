@@ -9,6 +9,8 @@
 #import "FacebookLoginViewController.h"
 #import "UserCredentials.h"
 #import "TabBarViewController.h"
+#import <Parse/Parse.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 #define showTabScreenSegue @"showTabScreenSegue"
 
@@ -35,7 +37,7 @@
 -(IBAction)onFacebookLogin:(id)sender {
     NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
-        //[_activityIndicator stopAnimating]; // Hide loading indicator
+//        [_activityIndicator stopAnimating]; // Hide loading indicator
         if (!user) {
             if (!error) {
                 NSLog(@"Uh oh. The user cancelled the Facebook login.");
@@ -54,7 +56,7 @@
             [self.navigationController pushViewController:[TabBarViewController alloc] animated:YES];
         }
     }];
-    //[_activityIndicator startAnimating];
+//    [_activityIndicator startAnimating];
 }
 
 @end
