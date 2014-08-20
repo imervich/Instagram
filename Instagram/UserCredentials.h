@@ -19,4 +19,5 @@
 
 
 -(void)signUp:(NSString*)username email:(NSString*)email password:(NSString*)password;
+-(void)loginWithParse:(NSString*)username password:(NSString*)password;
 @end

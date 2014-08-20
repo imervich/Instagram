@@ -7,6 +7,7 @@
 //
 
 #import "SignupViewController.h"
+#import "UserCredentials.h"
 
 #define showTabScreenSegue @"showTabScreenSegue"
 

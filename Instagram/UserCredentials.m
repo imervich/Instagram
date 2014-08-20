@@ -24,12 +24,26 @@
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
-            // Hooray! Let them use the app now.
+            // create user object
+            User *user = [[User alloc] init];
+            user.username = username;
         } else {
             NSString *errorString = [error userInfo][@"error"];
             NSLog(@"%@",errorString);
         }
     }];
+}
+
+-(void)loginWithParse:(NSString*)username password:(NSString*)password
+{
+    [PFUser logInWithUsernameInBackground:username password:password
+                                    block:^(PFUser *user, NSError *error) {
+                                        if (user) {
+                                            // Do stuff after successful login.
+                                        } else {
+                                            // The login failed. Check error to see why.
+                                        }
+                                    }];
 }
 
 @end

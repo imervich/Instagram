@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "UserCredentials.h"
 
 #define showTabScreenSegue @"showTabScreenSegue"
 
