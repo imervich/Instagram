@@ -36,7 +36,7 @@
 {
 	[super viewWillAppear:animated];
 
-	self.navigationController.navigationBarHidden = YES;
+	self.navigationController.navigationBarHidden = NO;
 
 	// search users first
 	self.searchScope = searchScopeUsers;

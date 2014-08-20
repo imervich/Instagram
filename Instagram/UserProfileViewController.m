@@ -22,6 +22,12 @@
 	[self setUserImageViewRoundCorners];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	self.navigationController.navigationBarHidden = NO;
+}
+
 - (void)setUserImageViewRoundCorners
 {
 	self.userImageView.layer.cornerRadius = self.userImageView.bounds.size.width / 2;
