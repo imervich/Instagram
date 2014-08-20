@@ -7,6 +7,7 @@
 //
 
 #import "UserProfileViewController.h"
+#import "TabBarViewController.h"
 
 @interface UserProfileViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *userImageView;
@@ -39,6 +40,9 @@
     [PFUser logOut];
     // Return to login view controller
     [self.navigationController popToRootViewControllerAnimated:YES];
+
+	TabBarViewController *tabBarVC = (TabBarViewController *)self.tabBarController;
+	[tabBarVC checkForLoggedUser];
 }
 
 @end

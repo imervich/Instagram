@@ -25,6 +25,11 @@
 {
 	[super viewDidAppear:animated];
 
+	[self checkForLoggedUser];
+}
+
+- (void)checkForLoggedUser
+{
 	// check if user is logged in, if not, perform segue showLoginOptionsScreenSegue
 	if (![PFUser currentUser] || ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
 		[self performSegueWithIdentifier:showLoginOptionsScreenSegue sender:self];

@@ -10,4 +10,6 @@
 
 @interface TabBarViewController : UITabBarController
 
+- (void)checkForLoggedUser;
+
 @end
