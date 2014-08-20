@@ -482,7 +482,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="username" id="jNd-WK-Vou"/>
+                    <navigationItem key="navigationItem" title="username" id="jNd-WK-Vou">
+                        <barButtonItem key="rightBarButtonItem" image="exit-50" id="nHW-gq-WeU">
+                            <connections>
+                                <action selector="onLogoutButtonTap:" destination="N0j-39-RIZ" id="f8e-bI-rDQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="userImageView" destination="Ecn-Ss-iFK" id="QtD-rA-8OB"/>
                     </connections>
@@ -587,6 +593,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="exit-50" width="25" height="25"/>
         <image name="home-64" width="32" height="32"/>
         <image name="like-26" width="13" height="13"/>
         <image name="screenshot-64" width="32" height="32"/>
