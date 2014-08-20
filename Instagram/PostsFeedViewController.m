@@ -9,6 +9,7 @@
 #import "PostsFeedViewController.h"
 #import "PostsFeedTableViewCell.h"
 
+// cell id
 #define postsFeedCell @"PostsFeedCell"
 
 @interface PostsFeedViewController () <UITableViewDataSource, UITableViewDelegate, PostsFeedTableViewCellDelegate>
@@ -22,6 +23,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	self.navigationController.navigationBarHidden = YES;
 }
 
 #pragma mark - UITableView DataSource methods

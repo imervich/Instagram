@@ -170,7 +170,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Wxz-Ok-Wlw" kind="relationship" relationship="viewControllers" id="q3e-QZ-nag"/>
+                        <segue destination="Wxz-Ok-Wlw" kind="relationship" relationship="viewControllers" id="Uas-Km-4Jb"/>
                         <segue destination="Y1X-bv-GR5" kind="relationship" relationship="viewControllers" id="tNT-cx-m4Q"/>
                         <segue destination="Wns-WL-YoI" kind="relationship" relationship="viewControllers" id="pSD-tG-2DG"/>
                         <segue destination="N0j-39-RIZ" kind="relationship" relationship="viewControllers" id="4a5-dc-LWe"/>
@@ -192,14 +192,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" rowHeight="409" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pup-0O-fGY">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" rowHeight="409" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pup-0O-fGY">
                                 <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostsFeedCell" rowHeight="409" id="mwh-aS-6bf" customClass="PostsFeedTableViewCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="409"/>
+                                        <rect key="frame" x="0.0" y="86" width="320" height="409"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mwh-aS-6bf" id="OsA-q8-eZX">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="408"/>
@@ -289,16 +289,9 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Pup-0O-fGY" firstAttribute="top" secondItem="xHH-RT-wx8" secondAttribute="top" constant="20" id="47g-hq-Ziv"/>
-                            <constraint firstItem="Pup-0O-fGY" firstAttribute="leading" secondItem="xHH-RT-wx8" secondAttribute="leading" id="Iaf-dl-fzO"/>
-                            <constraint firstAttribute="trailing" secondItem="Pup-0O-fGY" secondAttribute="trailing" id="Yl6-Mr-mQi"/>
-                            <constraint firstAttribute="bottom" secondItem="Pup-0O-fGY" secondAttribute="bottom" id="dof-Ss-RQN"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="home-64" id="7De-Wj-wBZ"/>
-                    <navigationItem key="navigationItem" id="Yt3-wg-wu9"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="Pup-0O-fGY" id="fBN-76-1fV"/>
                     </connections>
@@ -307,10 +300,10 @@
             </objects>
             <point key="canvasLocation" x="-1431" y="-2368"/>
         </scene>
-        <!--View Controller-->
+        <!--Explore View Controller-->
         <scene sceneID="U23-9z-flC">
             <objects>
-                <viewController id="Y1X-bv-GR5" sceneMemberID="viewController">
+                <viewController id="Y1X-bv-GR5" customClass="ExploreViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Hv1-Co-SSC"/>
                         <viewControllerLayoutGuide type="bottom" id="488-Ww-wwV"/>
@@ -318,12 +311,74 @@
                     <view key="view" contentMode="scaleToFill" id="2R0-xa-F9f">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Zr-rl-ltG">
+                                <rect key="frame" x="0.0" y="20" width="320" height="88"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Users</string>
+                                    <string>Hashtags</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="Y1X-bv-GR5" id="Yjr-07-l54"/>
+                                </connections>
+                            </searchBar>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IZi-Gs-5Kj">
+                                <rect key="frame" x="0.0" y="108" width="320" height="372"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="0.0" id="85U-BP-5D7">
+                                    <size key="itemSize" width="106" height="106"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ExploreCell" id="U1u-rb-fgE">
+                                        <rect key="frame" x="0.0" y="0.0" width="106" height="106"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="106" height="106"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stack_of_photos-256" translatesAutoresizingMaskIntoConstraints="NO" id="bJD-kY-qm3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="106" height="106"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <activityIndicatorView hidden="YES" opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="2t4-Qy-p1E">
+                                                    <rect key="frame" x="35" y="34" width="37" height="37"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y1X-bv-GR5" id="lr2-Ju-zJ3"/>
+                                    <outlet property="delegate" destination="Y1X-bv-GR5" id="GwB-Ub-dXw"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="wind_rose-64" id="ZDV-d5-XIJ"/>
-                    <navigationItem key="navigationItem" id="NfI-bq-ICY"/>
+                    <connections>
+                        <outlet property="collectionView" destination="IZi-Gs-5Kj" id="b4U-XO-hH0"/>
+                        <outlet property="searchDisplayController" destination="tJf-Oc-PFy" id="4ii-Q3-Mr8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SbZ-ed-U51" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController searchResultsTitle="" id="tJf-Oc-PFy">
+                    <connections>
+                        <outlet property="delegate" destination="Y1X-bv-GR5" id="vgA-LU-2zN"/>
+                        <outlet property="searchBar" destination="7Zr-rl-ltG" id="vbm-Mb-Dsh"/>
+                        <outlet property="searchContentsController" destination="Y1X-bv-GR5" id="NPI-Fm-ewt"/>
+                        <outlet property="searchResultsDataSource" destination="Y1X-bv-GR5" id="i1p-s2-NTn"/>
+                        <outlet property="searchResultsDelegate" destination="Y1X-bv-GR5" id="W8F-rt-fdl"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-1431" y="-1792"/>
         </scene>

@@ -21,6 +21,7 @@
 		2C72061119A3947F009F5A65 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C7205F319A3947F009F5A65 /* UIKit.framework */; };
 		2C72061919A3947F009F5A65 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C72061719A3947F009F5A65 /* InfoPlist.strings */; };
 		2C72061B19A3947F009F5A65 /* InstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C72061A19A3947F009F5A65 /* InstagramTests.m */; };
+		2CBAC8C719A454CA00D4C88F /* ExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBAC8C619A454CA00D4C88F /* ExploreViewController.m */; };
 		2CCC01B019A3B02400B1E30F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCC01AF19A3B02400B1E30F /* Parse.framework */; };
 		2CCC01BA19A3B60100B1E30F /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01B319A3B60100B1E30F /* TPKeyboardAvoidingCollectionView.m */; };
 		2CCC01BB19A3B60100B1E30F /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC01B519A3B60100B1E30F /* TPKeyboardAvoidingScrollView.m */; };
@@ -67,6 +68,8 @@
 		2C72061619A3947F009F5A65 /* InstagramTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "InstagramTests-Info.plist"; sourceTree = "<group>"; };
 		2C72061819A3947F009F5A65 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2C72061A19A3947F009F5A65 /* InstagramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstagramTests.m; sourceTree = "<group>"; };
+		2CBAC8C519A454CA00D4C88F /* ExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExploreViewController.h; sourceTree = "<group>"; };
+		2CBAC8C619A454CA00D4C88F /* ExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExploreViewController.m; sourceTree = "<group>"; };
 		2CCC01AF19A3B02400B1E30F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		2CCC01B219A3B60100B1E30F /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
 		2CCC01B319A3B60100B1E30F /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
@@ -158,6 +161,7 @@
 				4322F48D19A44661002C1FD5 /* Model */,
 				2CCC01D119A3F08000B1E30F /* Login and sign up */,
 				2CCC01D019A3F07500B1E30F /* Posts feed */,
+				2CBAC8C819A454E100D4C88F /* Explore */,
 				2C7205FE19A3947F009F5A65 /* AppDelegate.h */,
 				2C7205FF19A3947F009F5A65 /* AppDelegate.m */,
 				2C72060119A3947F009F5A65 /* Main.storyboard */,
@@ -197,6 +201,15 @@
 				2C72061719A3947F009F5A65 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2CBAC8C819A454E100D4C88F /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				2CBAC8C519A454CA00D4C88F /* ExploreViewController.h */,
+				2CBAC8C619A454CA00D4C88F /* ExploreViewController.m */,
+			);
+			name = Explore;
 			sourceTree = "<group>";
 		};
 		2CCC01B119A3B60100B1E30F /* TPKeyboardAvoiding */ = {
@@ -364,6 +377,7 @@
 				2CCC01C019A3E03500B1E30F /* SignupViewController.m in Sources */,
 				4322F49619A44CB4002C1FD5 /* Photo.m in Sources */,
 				2CCC01C919A3E2AA00B1E30F /* PostsFeedViewController.m in Sources */,
+				2CBAC8C719A454CA00D4C88F /* ExploreViewController.m in Sources */,
 				2C7205FC19A3947F009F5A65 /* main.m in Sources */,
 				2CCC01CC19A3E30B00B1E30F /* PostsFeedTableViewCell.m in Sources */,
 			);
