@@ -36,7 +36,7 @@
 		4322F49019A4475D002C1FD5 /* UserCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 4322F48F19A4475D002C1FD5 /* UserCredentials.m */; };
 		4322F49619A44CB4002C1FD5 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4322F49519A44CB4002C1FD5 /* Photo.m */; };
 		43CC874619A4ECB400856845 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CC874519A4ECB400856845 /* FacebookSDK.framework */; };
-		43CC874C19A4F8A000856845 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 43CC874B19A4F8A000856845 /* Comment.m */; };
+		43CC874C19A4F8A000856845 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 43CC874B19A4F8A000856845 /* Event.m */; };
 		43CC874E19A5094700856845 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CC874D19A5094700856845 /* Parse.framework */; };
 		43CC874F19A50E0400856845 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CC874D19A5094700856845 /* Parse.framework */; };
 		F90C9F1B19A44CC90017B73F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90C9F1A19A44CC90017B73F /* Accounts.framework */; };
@@ -112,8 +112,8 @@
 		4322F49419A44CB4002C1FD5 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		4322F49519A44CB4002C1FD5 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		43CC874519A4ECB400856845 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		43CC874A19A4F8A000856845 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
-		43CC874B19A4F8A000856845 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		43CC874A19A4F8A000856845 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		43CC874B19A4F8A000856845 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		43CC874D19A5094700856845 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		F90C9F1A19A44CC90017B73F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		F90C9F1C19A44CD30017B73F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -335,8 +335,8 @@
 				4322F48F19A4475D002C1FD5 /* UserCredentials.m */,
 				4322F49419A44CB4002C1FD5 /* Photo.h */,
 				4322F49519A44CB4002C1FD5 /* Photo.m */,
-				43CC874A19A4F8A000856845 /* Comment.h */,
-				43CC874B19A4F8A000856845 /* Comment.m */,
+				43CC874A19A4F8A000856845 /* Event.h */,
+				43CC874B19A4F8A000856845 /* Event.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -442,7 +442,7 @@
 				2CCC01BB19A3B60100B1E30F /* TPKeyboardAvoidingScrollView.m in Sources */,
 				2CCC01CF19A3F00700B1E30F /* TabBarViewController.m in Sources */,
 				4322F49019A4475D002C1FD5 /* UserCredentials.m in Sources */,
-				43CC874C19A4F8A000856845 /* Comment.m in Sources */,
+				43CC874C19A4F8A000856845 /* Event.m in Sources */,
 				2C72060019A3947F009F5A65 /* AppDelegate.m in Sources */,
 				2CCC01BD19A3B60100B1E30F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				2CCC01BC19A3B60100B1E30F /* TPKeyboardAvoidingTableView.m in Sources */,

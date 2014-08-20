@@ -14,6 +14,7 @@
 @dynamic image;
 @dynamic likes;
 @dynamic location;
+@dynamic owner;
 
 + (void)load {
     [self registerSubclass];
