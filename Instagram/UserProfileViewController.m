@@ -22,7 +22,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *postsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *followersLabel;
 @property (weak, nonatomic) IBOutlet UILabel *followingLabel;
-@property (weak, nonatomic) IBOutlet UIButton *editProfileButton;
 @property (weak, nonatomic) IBOutlet UITabBar *tabBar;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
