@@ -23,7 +23,7 @@
 
 	// TODO:
 	// if user is not logged in, perform segue showTabScreenSegue
-	BOOL loggedIn = YES;
+	BOOL loggedIn = NO;
 	if (loggedIn) {
 		[self performSegueWithIdentifier:showTabScreenSegue sender:self];
 	}
@@ -34,6 +34,13 @@
 {
 	[super viewWillAppear:animated];
 	self.navigationController.navigationBarHidden = YES;
+}
+
+#pragma mark - IBActions
+
+- (IBAction)onFacebookLoginButtonTapped:(UIButton *)sender
+{
+	NSLog(@"login with facebook");
 }
 
 @end

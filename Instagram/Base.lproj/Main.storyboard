@@ -27,7 +27,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="YrL-sg-sNm" kind="push" identifier="showLoginWithFacebookScreenSegue" id="mTP-Z8-hth"/>
+                                    <action selector="onFacebookLoginButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6fG-B5-2Xh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDx-Pr-DhF">
@@ -382,36 +382,6 @@
             </objects>
             <point key="canvasLocation" x="-1431" y="-1792"/>
         </scene>
-        <!--Facebook Login View Controller-->
-        <scene sceneID="a7h-A2-0Cq">
-            <objects>
-                <viewController id="YrL-sg-sNm" customClass="FacebookLoginViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="P1M-Sg-0xw"/>
-                        <viewControllerLayoutGuide type="bottom" id="geQ-jn-0T7"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="yev-2G-Mfo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Log In With Facebook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PzN-Yh-9sj">
-                                <rect key="frame" x="20" y="119" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="19j-FR-6Zr"/>
-                    <connections>
-                        <segue destination="ktx-lY-gKe" kind="push" identifier="showTabScreenSegue" id="zhB-cW-ijE"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PNV-KQ-nAq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2592" y="-1491"/>
-        </scene>
         <!--Login View Controller-->
         <scene sceneID="726-7M-CLI">
             <objects>
@@ -482,7 +452,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="screenshot-64" id="BOE-XN-7af"/>
-                    <navigationItem key="navigationItem" id="KIj-Vz-xyz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zPO-Nt-QUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -502,7 +471,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="user-64" id="tne-HW-3kX"/>
-                    <navigationItem key="navigationItem" id="0CK-dn-7SX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IjQ-bK-1lc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -541,6 +509,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="sc0-yz-KCN"/>
+        <segue reference="DRG-Uy-mDZ"/>
     </inferredMetricsTieBreakers>
 </document>
