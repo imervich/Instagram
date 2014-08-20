@@ -7,9 +7,6 @@
 //
 
 #import "LoginTypeSelectionViewController.h"
-#import <Parse/Parse.h>
-
-#define showTabScreenSegue @"showTabScreenSegue"
 
 @interface LoginTypeSelectionViewController ()
 
@@ -20,13 +17,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-	// TODO:
-	// if user is not logged in, perform segue showTabScreenSegue
-//	BOOL loggedIn = YES;
-//	if (loggedIn) {
-//		[self performSegueWithIdentifier:showTabScreenSegue sender:self];
-//	}
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -55,11 +45,11 @@
             }
         } else if (user.isNew) {
             NSLog(@"User with facebook signed up and logged in!");
-            [self performSegueWithIdentifier:showTabScreenSegue sender:self];
+			[self dismissViewControllerAnimated:YES completion:nil];
         } else {
             NSLog(@"User with facebook logged in!");
-            [self performSegueWithIdentifier:showTabScreenSegue sender:self];
-        }
+			[self dismissViewControllerAnimated:YES completion:nil];
+		}
     }];
     //[_activityIndicator startAnimating];
 
