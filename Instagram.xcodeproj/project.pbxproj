@@ -45,6 +45,7 @@
 		F90C9F2D19A44D3D0017B73F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90C9F2C19A44D3D0017B73F /* AudioToolbox.framework */; };
 		F90C9F2F19A44D510017B73F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F90C9F2E19A44D510017B73F /* libz.dylib */; };
 		F90C9F3119A44D590017B73F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90C9F3019A44D590017B73F /* Security.framework */; };
+		F90C9F3319A44E440017B73F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90C9F3219A44E440017B73F /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		F90C9F2C19A44D3D0017B73F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		F90C9F2E19A44D510017B73F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F90C9F3019A44D590017B73F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F90C9F3219A44E440017B73F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				F90C9F2919A44D210017B73F /* MobileCoreServices.framework in Frameworks */,
 				F90C9F2719A44D120017B73F /* QuartzCore.framework in Frameworks */,
 				F90C9F2519A44D060017B73F /* CoreLocation.framework in Frameworks */,
+				F90C9F3319A44E440017B73F /* FacebookSDK.framework in Frameworks */,
 				F90C9F2319A44CFD0017B73F /* StoreKit.framework in Frameworks */,
 				F90C9F2119A44CED0017B73F /* SystemConfiguration.framework in Frameworks */,
 				F90C9F1F19A44CE40017B73F /* Social.framework in Frameworks */,
@@ -173,6 +176,7 @@
 		2C7205EE19A3947F009F5A65 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F90C9F3219A44E440017B73F /* FacebookSDK.framework */,
 				F90C9F3019A44D590017B73F /* Security.framework */,
 				F90C9F2E19A44D510017B73F /* libz.dylib */,
 				F90C9F2C19A44D3D0017B73F /* AudioToolbox.framework */,
@@ -529,6 +533,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/efnreyes/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Instagram/Instagram-Prefix.pch";
@@ -546,6 +551,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/efnreyes/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Instagram/Instagram-Prefix.pch";
