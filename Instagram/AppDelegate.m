@@ -15,6 +15,7 @@
 {
     [Parse setApplicationId:@"fdhpTrR9sNLAIFG3ULp0C7EErDwWdB4ij77zCzTB"
                   clientKey:@"cZFWrTM95wX1hCHVnfE9JTyG6FEONHRZWZABxUp0"];
+    [PFFacebookUtils initializeFacebook];
     return YES;
 }
 							
@@ -35,14 +36,20 @@
 	// Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [FBAppCall handleOpenURL:url
+                  sourceApplication:sourceApplication
+                        withSession:[PFFacebookUtils session]];
+}
+
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-	// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[PFFacebookUtils session] close];
 }
 
 @end
