@@ -42,6 +42,7 @@
 {
 	PostsFeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:postsFeedCell];
 	cell.delegate = self;
+	[cell setUserImageViewRoundCorners];
 
 	return cell;
 }
