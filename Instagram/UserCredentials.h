@@ -9,15 +9,20 @@
 #import <Foundation/Foundation.h>
 
 @protocol userCredentialsDelegate <NSObject>
-
--(id)userLoggedIn;
+@required
+-(void)userLoggedIn;
+-(void)userIsNew;
+@optional
+-(void)requestGotError:(NSString*)error;
 
 @end
 
 @interface UserCredentials : NSObject
 
-
+@property id<userCredentialsDelegate>delegate;
 
 -(void)signUp:(NSString*)username email:(NSString*)email password:(NSString*)password;
 -(void)loginWithParse:(NSString*)username password:(NSString*)password;
+-(void)loginWithFacebook;
+
 @end

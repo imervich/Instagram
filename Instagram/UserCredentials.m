@@ -23,11 +23,10 @@
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
-            // move user object to a Singleton to access globally?
-            
+            [self.delegate userLoggedIn];
         } else {
             NSString *errorString = [error userInfo][@"error"];
-            NSLog(@"%@",errorString);
+            [self.delegate requestGotError:errorString];
         }
     }];
 }
@@ -37,11 +36,39 @@
     [PFUser logInWithUsernameInBackground:username password:password
                                     block:^(PFUser *user, NSError *error) {
                                         if (user) {
-                                            // Do stuff after successful login.
+                                            [self.delegate userLoggedIn];
                                         } else {
-                                            // The login failed. Check error to see why.
+                                            NSString *errorString = [error userInfo][@"error"];
+                                            [self.delegate requestGotError:errorString];
                                         }
                                     }];
+}
+
+-(void)loginWithFacebook
+{
+    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
+    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+        if (!user) {
+            if (!error) {
+                [self.delegate requestGotError:@"Uh oh. The user cancelled the Facebook login."];
+
+//                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Error" message:@"Uh oh. The user cancelled the Facebook login." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
+//                [alert show];
+            } else {
+                NSString *errorString = [error userInfo][@"error"];
+                [self.delegate requestGotError:errorString];
+
+//                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Error" message:[error description] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
+//                [alert show];
+            }
+        } else if (user.isNew) {
+            NSLog(@"User with facebook signed up and logged in!");
+            [self.delegate userIsNew];
+        } else {
+            NSLog(@"User with facebook logged in!");
+            [self.delegate userLoggedIn];
+		}
+    }];
 }
 
 @end
