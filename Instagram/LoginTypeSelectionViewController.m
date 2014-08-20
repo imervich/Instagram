@@ -38,6 +38,12 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(void)requestGotError:(NSString *)error
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
+        [alert show];
+}
+
 #pragma mark - IBActions
 
 - (IBAction)onFacebookLoginButtonTapped:(UIButton *)sender

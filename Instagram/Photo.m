@@ -11,9 +11,6 @@
 
 @implementation Photo
 
-@dynamic photoID;
-@dynamic userID;
-@dynamic url;
 @dynamic image;
 @dynamic likes;
 @dynamic location;

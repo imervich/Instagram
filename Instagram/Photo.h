@@ -9,9 +9,6 @@
 @interface Photo : PFObject<PFSubclassing>
 + (NSString *)parseClassName;
 
-@property int photoID;
-@property int userID;
-@property (retain) NSString *url;
 @property (retain) UIImage *image;
 @property int likes;
 @property (retain) PFGeoPoint *location;
