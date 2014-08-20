@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C63283719A4EF4D0055AB5B /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C63283619A4EF4D0055AB5B /* CameraViewController.m */; };
 		2C7205F019A3947F009F5A65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C7205EF19A3947F009F5A65 /* Foundation.framework */; };
 		2C7205F219A3947F009F5A65 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C7205F119A3947F009F5A65 /* CoreGraphics.framework */; };
 		2C7205F419A3947F009F5A65 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C7205F319A3947F009F5A65 /* UIKit.framework */; };
@@ -62,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C63283519A4EF4D0055AB5B /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		2C63283619A4EF4D0055AB5B /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		2C7205EC19A3947F009F5A65 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C7205EF19A3947F009F5A65 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2C7205F119A3947F009F5A65 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -163,6 +166,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C63283419A4EF1E0055AB5B /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				2C63283519A4EF4D0055AB5B /* CameraViewController.h */,
+				2C63283619A4EF4D0055AB5B /* CameraViewController.m */,
+			);
+			name = Camera;
+			sourceTree = "<group>";
+		};
 		2C7205E319A3947F009F5A65 = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +226,7 @@
 				2CCC01D119A3F08000B1E30F /* Login and sign up */,
 				2CCC01D019A3F07500B1E30F /* Posts feed */,
 				2CBAC8C819A454E100D4C88F /* Explore */,
+				2C63283419A4EF1E0055AB5B /* Camera */,
 				2C7205FE19A3947F009F5A65 /* AppDelegate.h */,
 				2C7205FF19A3947F009F5A65 /* AppDelegate.m */,
 				2C72060119A3947F009F5A65 /* Main.storyboard */,
@@ -430,6 +443,7 @@
 				4322F49619A44CB4002C1FD5 /* Photo.m in Sources */,
 				2CCC01C919A3E2AA00B1E30F /* PostsFeedViewController.m in Sources */,
 				2CBAC8C719A454CA00D4C88F /* ExploreViewController.m in Sources */,
+				2C63283719A4EF4D0055AB5B /* CameraViewController.m in Sources */,
 				2C7205FC19A3947F009F5A65 /* main.m in Sources */,
 				2CCC01CC19A3E30B00B1E30F /* PostsFeedTableViewCell.m in Sources */,
 			);

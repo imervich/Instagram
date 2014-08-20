@@ -468,10 +468,10 @@
             </objects>
             <point key="canvasLocation" x="-2578" y="-863"/>
         </scene>
-        <!--View Controller-->
+        <!--Camera View Controller-->
         <scene sceneID="k2h-xM-Wsq">
             <objects>
-                <viewController id="Wns-WL-YoI" sceneMemberID="viewController">
+                <viewController id="Wns-WL-YoI" customClass="CameraViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rsr-l8-Csq"/>
                         <viewControllerLayoutGuide type="bottom" id="va6-3v-582"/>
