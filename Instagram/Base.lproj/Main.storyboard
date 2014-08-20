@@ -163,7 +163,7 @@
             <objects>
                 <tabBarController definesPresentationContext="YES" id="ktx-lY-gKe" customClass="TabBarViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="bQu-f1-jzV"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="pgm-Qm-Vyo">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -266,9 +266,14 @@
                                                         <action selector="onCommentButtonTapped:" destination="mwh-aS-6bf" eventType="touchUpInside" id="b31-hP-NfL"/>
                                                     </connections>
                                                 </button>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="3Gd-8s-WSd">
+                                                    <rect key="frame" x="142" y="172" width="37" height="37"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="activityIndicator" destination="3Gd-8s-WSd" id="EGi-RM-NlI"/>
                                             <outlet property="commentButton" destination="QUd-MD-UhO" id="oqC-6w-69F"/>
                                             <outlet property="likeButton" destination="60f-ca-veG" id="ijA-t1-e0V"/>
                                             <outlet property="likesLabel" destination="9NO-pZ-4gW" id="pUo-N6-7MF"/>
