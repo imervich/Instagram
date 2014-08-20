@@ -23,7 +23,7 @@
 
 	// TODO:
 	// if user is not logged in, perform segue showTabScreenSegue
-	BOOL loggedIn = NO;
+	BOOL loggedIn = YES;
 	if (loggedIn) {
 		[self performSegueWithIdentifier:showTabScreenSegue sender:self];
 	}
