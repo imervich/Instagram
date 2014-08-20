@@ -11,7 +11,7 @@
 
 #define showTabScreenSegue @"showTabScreenSegue"
 
-@interface LoginViewController ()
+@interface LoginViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -30,6 +30,16 @@
 {
 	[super viewWillAppear:animated];
 	self.navigationController.navigationBarHidden = NO;
+}
+
+#pragma mark - UITextField Delegate methods
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+	[textField resignFirstResponder];
+
+	NSLog(@"pressed enter on password textfield, check that fields are not empty");
+	return YES;
 }
 
 @end
