@@ -27,7 +27,7 @@
 		//camera is available, so show an alert to let the user choose
 		NSLog(@"show camera");
         UIAlertView *sourceChooser = [[UIAlertView alloc] initWithTitle:@"Choose Picture Source" message:@"Do you want to take a picture or select one from the gallery?" delegate:self cancelButtonTitle:@"Camera" otherButtonTitles:@"Gallery", nil];
-        [alert show];
+        [sourceChooser show];
 	} else {
         //there is no camera available, so only camera roll
 		NSLog(@"show camera roll");
