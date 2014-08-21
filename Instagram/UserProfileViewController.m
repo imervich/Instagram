@@ -19,7 +19,7 @@
 // segue
 #define showPhotoSegue @"showPhotoSegue"
 
-@interface UserProfileViewController () <UITabBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface UserProfileViewController () <UITabBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate, PostsFeedTableViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *userImageView;
 @property (weak, nonatomic) IBOutlet UILabel *postsLabel;
@@ -206,34 +206,34 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 0;
+	return self.userPhotos.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	PostsFeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:postsFeedCell];
+	cell.delegate = self;
 
-	// configure cell
-
-//	cell.delegate = self;
-
-//	PFFile *file = photo[@"file"];
-//	[file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-//
-//		if (!error) {
-//			UIImage *image = [UIImage imageWithData:data];
-//		} else {
-//			NSLog(@"Error getting user photos %@ %@", error, error.userInfo);
-//		}
-//	}];
-
-//	@property (weak, nonatomic) IBOutlet UIButton *userImageButton;
-//	@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-//	@property (weak, nonatomic) IBOutlet UILabel *likesLabel;
-//	@property (weak, nonatomic) IBOutlet UIButton *likeButton;
-//	@property (weak, nonatomic) IBOutlet UIButton *commentButton;
+	[cell setUserImageViewRoundCorners];
 
 	return cell;
+}
+
+#pragma mark - PostsFeedTableViewCell Delegate methods
+
+- (void)didTapLikeButtonOnCell:(PostsFeedTableViewCell *)cell
+{
+	NSLog(@"like post");
+}
+
+- (void)didTapCommentButtonOnCell:(PostsFeedTableViewCell *)cell
+{
+	NSLog(@"open post comments");
+}
+
+- (void)didTapUserImageButtonOnCell:(PostsFeedTableViewCell *)cell
+{
+	NSLog(@"go to user profile");
 }
 
 #pragma mark - Navigation
