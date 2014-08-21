@@ -92,6 +92,7 @@
 		// get the user photos
 		PFQuery *photosQuery = [PFQuery queryWithClassName:@"Photo"];
 		[photosQuery whereKey:@"user" equalTo:user];
+		[photosQuery includeKey:@"user"];
 
 		[self.activityIndicator startAnimating];
 
