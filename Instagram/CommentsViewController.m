@@ -7,6 +7,8 @@
 //
 
 #import "CommentsViewController.h"
+#import "Event.h"
+#import "Photo.h"
 
 #define CommentCell @"CommentCell"
 
@@ -20,6 +22,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property NSArray *comments;
 
 @end
 
@@ -45,6 +48,7 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+	[self performQuery];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -72,9 +76,30 @@
 
 - (void)postComment
 {
-	NSString *comment = self.commentTextField.text;
-	if (comment.length > 0) {
-		NSLog(@"post comment %@",comment);
+	NSString *commentText = self.commentTextField.text;
+	if (commentText.length > 0) {
+
+		Event *comment = [Event object];
+		comment.type = @"comment";
+		comment.photo = self.photo;
+		// comment text
+		comment.details = commentText;
+		// who is commenting
+		comment.origin = [PFUser currentUser];
+		// whose photo is it
+		comment.destination = self.photo.user;
+
+		[comment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+			if (!error) {
+				if (succeeded) {
+					NSLog(@"post comment %@", comment);
+					[self performQuery];
+				}
+			} else {
+				NSLog(@"Error posting comment %@ %@", error, error.userInfo);
+			}
+		}];
+
 		[self.commentTextField resignFirstResponder];
 		[self.fakeTextField resignFirstResponder];
 	}
@@ -104,26 +129,42 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 5;
+	return self.comments.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	Event *comment = self.comments[indexPath.row];
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CommentCell];
 
 	UIButton *userImageButton = (UIButton *)[cell viewWithTag:1];
-	[self setViewRoundCorners:userImageButton];
 
-//	UILabel *usernameLabel =  (UILabel *)[cell viewWithTag:2];
-	// TODO: set username
+	// set the user profile pic
+	PFFile *file = self.photo.user[@"avatar"];
+	if (file) {
+		[file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
 
-//	UILabel *commentLabel =  (UILabel *)[cell viewWithTag:3];
-	// TODO: set comment
+			if (!error) {
+				if (data) {
+					UIImage *image = [UIImage imageWithData:data];
+					userImageButton.imageView.image = image;
+				}
+			} else {
+				NSLog(@"Error getting user profile pic on comment %@ %@", error, error.userInfo);
+			}
+
+			[self setViewRoundCorners:userImageButton];
+		}];
+	}
+
+	UILabel *usernameLabel =  (UILabel *)[cell viewWithTag:2];
+	usernameLabel.text = comment.origin.username;
+
+	UILabel *commentLabel =  (UILabel *)[cell viewWithTag:3];
+	commentLabel.text = comment.details;
 
 	return cell;
 }
-
-
 
 #pragma mark - IBActions
 
@@ -134,6 +175,26 @@
 }
 
 #pragma mark - Helper methods
+
+- (void)performQuery
+{
+	PFQuery *commentsQuery = [PFQuery queryWithClassName:@"Event"];
+	[commentsQuery whereKey:@"type" equalTo:@"comment"];
+	//	[commentsQuery whereKey:@"destination" equalTo:self.photo.user];
+	[commentsQuery whereKey:@"photo" equalTo:self.photo];
+	[commentsQuery includeKey:@"photo"];
+	[commentsQuery includeKey:@"origin"];
+
+	[commentsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+		if (!error) {
+			self.comments = objects;
+			NSLog(@"found %d comments for this photo", objects.count);
+			[self.tableView reloadData];
+		} else {
+			NSLog(@"Error getting comments for photo %@ - %@ %@", self.photo, error, error.userInfo);
+		}
+	}];
+}
 
 - (void)setViewRoundCorners:(UIView *)view
 {

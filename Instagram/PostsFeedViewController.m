@@ -9,9 +9,13 @@
 #import "PostsFeedViewController.h"
 #import "PostsFeedTableViewCell.h"
 #import "Photo.h"
+#import "CommentsViewController.h"
 
 // cell id
 #define postsFeedCell @"PostsFeedCell"
+
+// segue
+#define showCommentsSegue @"showCommentsSegue"
 
 @interface PostsFeedViewController () <UITableViewDataSource, UITableViewDelegate, PostsFeedTableViewCellDelegate>
 
@@ -93,12 +97,24 @@
 
 - (void)didTapCommentButtonOnCell:(PostsFeedTableViewCell *)cell
 {
-	NSLog(@"open post comments");
+	NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+	Photo *photo = self.photos[indexPath.row];
+	[self performSegueWithIdentifier:showCommentsSegue sender:photo];
 }
 
 - (void)didTapUserImageButtonOnCell:(PostsFeedTableViewCell *)cell
 {
 	NSLog(@"go to user profile");
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:showCommentsSegue]) {
+		CommentsViewController *commentsVC = segue.destinationViewController;
+		commentsVC.photo = sender;
+	}
 }
 
 @end

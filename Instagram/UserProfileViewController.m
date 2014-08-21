@@ -11,6 +11,7 @@
 #import "PostsFeedTableViewCell.h"
 #import "Photo.h"
 #import "PhotoDetailViewController.h"
+#import "CommentsViewController.h"
 
 #define UserPhotoCollectionViewCell @"UserPhotoCollectionViewCell"
 
@@ -19,6 +20,7 @@
 
 // segue
 #define showPhotoSegue @"showPhotoSegue"
+#define showCommentsSegue @"showCommentsSegue"
 
 // cell height
 #define PostsFeedTableViewCellHeight 409
@@ -37,6 +39,8 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @property NSArray *userPhotos;
+
+@property Photo *selectedPhoto;
 
 @end
 
@@ -206,10 +210,10 @@
 
 #pragma mark - UICollectionView Delegate methods
 
-//- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-//{
-//	NSLog(@"selected cell, load photo details");
-//}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+	[self performSegueWithIdentifier:showPhotoSegue sender:self.userPhotos[indexPath.row]];
+}
 
 #pragma mark - UITableView DataSource methods
 
@@ -239,7 +243,9 @@
 
 - (void)didTapCommentButtonOnCell:(PostsFeedTableViewCell *)cell
 {
-	NSLog(@"open post comments");
+	NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+	Photo *photo = self.userPhotos[indexPath.row];
+	[self performSegueWithIdentifier:showCommentsSegue sender:photo];
 }
 
 - (void)didTapUserImageButtonOnCell:(PostsFeedTableViewCell *)cell
@@ -249,14 +255,17 @@
 
 #pragma mark - Navigation
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(Photo *)sender
 {
+	// called from the collection view cell
 	if ([segue.identifier isEqualToString:showPhotoSegue]) {
 		PhotoDetailViewController *photoDetailVC = segue.destinationViewController;
-
-		NSIndexPath *indexPath = self.collectionView.indexPathsForSelectedItems[0];
-		Photo *photo = self.userPhotos[indexPath.row];
-		photoDetailVC.photo = photo;
+		photoDetailVC.photo = sender;
+	}
+	// called from the table view cell
+	else if ([segue.identifier isEqualToString:showCommentsSegue]) {
+		CommentsViewController *commentsVC = segue.destinationViewController;
+		commentsVC.photo = sender;
 	}
 }
 

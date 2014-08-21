@@ -8,6 +8,10 @@
 
 #import "PhotoDetailViewController.h"
 #import "Photo.h"
+#import "CommentsViewController.h"
+
+// segue
+#define showCommentsSegue @"showCommentsSegue"
 
 @interface PhotoDetailViewController ()
 
@@ -50,9 +54,19 @@
 	NSLog(@"like photo");
 }
 
-- (IBAction)onCommentButtonTapped:(UIButton *)sender
+//- (IBAction)onCommentButtonTapped:(UIButton *)sender
+//{
+//	NSLog(@"open comments from photo details");
+//}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-	NSLog(@"open comments");
+	if ([segue.identifier isEqualToString:showCommentsSegue]) {
+		CommentsViewController *commentsVC = segue.destinationViewController;
+		commentsVC.photo = self.photo;
+	}
 }
 
 #pragma mark - Helper methods
