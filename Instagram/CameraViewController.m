@@ -31,6 +31,7 @@
 	} else {
         //there is no camera available, so only camera roll
 		NSLog(@"show camera roll");
+        
 	}
 }
 
