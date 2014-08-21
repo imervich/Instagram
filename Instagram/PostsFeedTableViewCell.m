@@ -28,6 +28,7 @@
     self.photoImageView.image = [UIImage imageWithData:photo.file.getData];
     self.photoImageView.contentMode = UIViewContentModeScaleAspectFit;
 	self.likesLabel.text = [NSString stringWithFormat:@"%d", photo.likes];
+    
 }
 
 - (void)setUserImageViewRoundCorners
