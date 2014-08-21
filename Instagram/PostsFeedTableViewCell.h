@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class PostsFeedTableViewCell;
+@class Photo;
 
 @protocol PostsFeedTableViewCellDelegate
 
@@ -23,5 +24,7 @@
 @property id<PostsFeedTableViewCellDelegate> delegate;
 
 - (void)setUserImageViewRoundCorners;
+
+- (void)setCellWithPhoto:(Photo *)photo;
 
 @end

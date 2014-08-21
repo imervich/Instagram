@@ -211,9 +211,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	Photo *photo = self.userPhotos[indexPath.row];
 	PostsFeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:postsFeedCell];
 	cell.delegate = self;
 
+	[cell setCellWithPhoto:photo];
 	[cell setUserImageViewRoundCorners];
 
 	return cell;
