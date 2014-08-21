@@ -114,10 +114,10 @@
 	UIButton *userImageButton = (UIButton *)[cell viewWithTag:1];
 	[self setViewRoundCorners:userImageButton];
 
-	UILabel *usernameLabel =  (UILabel *)[cell viewWithTag:2];
+//	UILabel *usernameLabel =  (UILabel *)[cell viewWithTag:2];
 	// TODO: set username
 
-	UILabel *commentLabel =  (UILabel *)[cell viewWithTag:3];
+//	UILabel *commentLabel =  (UILabel *)[cell viewWithTag:3];
 	// TODO: set comment
 
 	return cell;

@@ -11,6 +11,7 @@
 		2C63283B19A4F7490055AB5B /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C63283A19A4F7490055AB5B /* UserProfileViewController.m */; };
 		2C63283F19A534620055AB5B /* PhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C63283E19A534620055AB5B /* PhotoDetailViewController.m */; };
 		2C63284219A542170055AB5B /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C63284119A542170055AB5B /* CommentsViewController.m */; };
+		2C63284519A58AA00055AB5B /* SharePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C63284419A58AA00055AB5B /* SharePhotoViewController.m */; };
 		2C7205F019A3947F009F5A65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C7205EF19A3947F009F5A65 /* Foundation.framework */; };
 		2C7205F219A3947F009F5A65 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C7205F119A3947F009F5A65 /* CoreGraphics.framework */; };
 		2C7205F419A3947F009F5A65 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C7205F319A3947F009F5A65 /* UIKit.framework */; };
@@ -74,6 +75,8 @@
 		2C63283E19A534620055AB5B /* PhotoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailViewController.m; sourceTree = "<group>"; };
 		2C63284019A542170055AB5B /* CommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsViewController.h; sourceTree = "<group>"; };
 		2C63284119A542170055AB5B /* CommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
+		2C63284319A58AA00055AB5B /* SharePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharePhotoViewController.h; sourceTree = "<group>"; };
+		2C63284419A58AA00055AB5B /* SharePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharePhotoViewController.m; sourceTree = "<group>"; };
 		2C7205EC19A3947F009F5A65 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C7205EF19A3947F009F5A65 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2C7205F119A3947F009F5A65 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -199,6 +202,8 @@
 				2C63283E19A534620055AB5B /* PhotoDetailViewController.m */,
 				2C63284019A542170055AB5B /* CommentsViewController.h */,
 				2C63284119A542170055AB5B /* CommentsViewController.m */,
+				2C63284319A58AA00055AB5B /* SharePhotoViewController.h */,
+				2C63284419A58AA00055AB5B /* SharePhotoViewController.m */,
 			);
 			name = Photos;
 			sourceTree = "<group>";
@@ -457,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C72060619A3947F009F5A65 /* LoginTypeSelectionViewController.m in Sources */,
+				2C63284519A58AA00055AB5B /* SharePhotoViewController.m in Sources */,
 				2CCC01BB19A3B60100B1E30F /* TPKeyboardAvoidingScrollView.m in Sources */,
 				2CCC01CF19A3F00700B1E30F /* TabBarViewController.m in Sources */,
 				4322F49019A4475D002C1FD5 /* UserCredentials.m in Sources */,

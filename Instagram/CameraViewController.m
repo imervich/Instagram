@@ -8,6 +8,8 @@
 
 #import "CameraViewController.h"
 
+#define showShareScreenSegue @"showShareScreenSegue"
+
 @interface CameraViewController ()
 
 @end
