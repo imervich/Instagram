@@ -24,6 +24,11 @@
 
 @implementation PostsFeedTableViewCell
 
+- (void)cellWithPhoto:(Photo *)photo{
+    self.photoImageView.image = [UIImage imageWithData:photo.file.getData];
+    self.photoImageView.contentMode = UIViewContentModeScaleAspectFit;
+}
+
 - (void)setUserImageViewRoundCorners
 {
 	self.userImageButton.layer.cornerRadius = self.userImageButton.bounds.size.width / 2;
