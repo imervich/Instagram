@@ -15,6 +15,7 @@
 @dynamic origin;
 @dynamic destination;
 @dynamic details;
+@dynamic photo;
 
 + (void)load {
     [self registerSubclass];

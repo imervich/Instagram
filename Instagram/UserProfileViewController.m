@@ -47,6 +47,7 @@
 {
 	[super viewWillAppear:animated];
 	self.navigationController.navigationBarHidden = NO;
+    self.navigationItem.title = [[PFUser currentUser] username];
 }
 
 - (void)setUserImageViewRoundCorners
