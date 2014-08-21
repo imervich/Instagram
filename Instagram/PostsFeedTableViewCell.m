@@ -24,23 +24,16 @@
 
 @implementation PostsFeedTableViewCell
 
-- (void)cellWithPhoto:(Photo *)photo{
+- (void)setCellWithPhoto:(Photo *)photo{
     self.photoImageView.image = [UIImage imageWithData:photo.file.getData];
     self.photoImageView.contentMode = UIViewContentModeScaleAspectFit;
+	self.likesLabel.text = [NSString stringWithFormat:@"%d", photo.likes];
 }
 
 - (void)setUserImageViewRoundCorners
 {
 	self.userImageButton.layer.cornerRadius = self.userImageButton.bounds.size.width / 2;
 	self.userImageButton.layer.masksToBounds = YES;
-}
-
-- (void)setCellWithPhoto:(Photo *)photo
-{
-    self.photoImageView.image = [UIImage imageWithData:photo.file.getData];
-    self.photoImageView.contentMode = UIViewContentModeScaleAspectFit;
-
-	self.likesLabel.text = [NSString stringWithFormat:@"%d", photo.likes];
 }
 
 #pragma mark - IBActions

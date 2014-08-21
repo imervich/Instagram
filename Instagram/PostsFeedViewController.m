@@ -77,7 +77,7 @@
 	PostsFeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:postsFeedCell];
     Photo *photo = [self.photos objectAtIndex:indexPath.row];
 //    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:photo.file.getData]];
-    [cell cellWithPhoto:photo];
+    [cell setCellWithPhoto:photo];
 	cell.delegate = self;
 	[cell setUserImageViewRoundCorners];
 	return cell;

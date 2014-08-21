@@ -19,6 +19,9 @@
 // segue
 #define showPhotoSegue @"showPhotoSegue"
 
+// cell height
+#define PostsFeedTableViewCellHeight 409
+
 @interface UserProfileViewController () <UITabBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate, PostsFeedTableViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *userImageView;
@@ -193,6 +196,11 @@
 	}];
 
 	return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return PostsFeedTableViewCellHeight;
 }
 
 #pragma mark - UICollectionView Delegate methods
