@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Photo.h"
 
 @class PostsFeedTableViewCell;
 
@@ -21,5 +22,6 @@
 @interface PostsFeedTableViewCell : UITableViewCell
 
 @property id<PostsFeedTableViewCellDelegate> delegate;
+@property Photo *photo;
 
 @end

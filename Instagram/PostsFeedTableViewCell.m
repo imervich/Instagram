@@ -22,6 +22,13 @@
 
 @implementation PostsFeedTableViewCell
 
+- (id)initWithPhoto:(Photo *)photo{
+    self = [super init];
+
+    self.userImageButton.imageView.image = photo.image;
+    return self;
+}
+
 #pragma mark - IBActions
 
 - (IBAction)onLikeButtonTapped:(UIButton *)sender
