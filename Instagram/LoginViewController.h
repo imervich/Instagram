@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserCredentials.h"
 
 @interface LoginViewController : UIViewController
+
+@property UserCredentials *model;
 
 @end

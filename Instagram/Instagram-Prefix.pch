@@ -14,4 +14,7 @@
 	#import <UIKit/UIKit.h>
 	#import <Foundation/Foundation.h>
 	#import <Parse/Parse.h>
+
+    #define REAL_NAME @"real_name"
+    #define AVATAR @"avatar"
 #endif

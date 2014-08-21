@@ -16,6 +16,8 @@
 #define	ExploreCell	@"ExploreCell"
 #define ExploreSearchTableViewCell @"ExploreSearchTableViewCell"
 
+// segues
+#define showPhotoSegue @"showPhotoSegue"
 
 @interface ExploreViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate>
 
@@ -115,5 +117,13 @@
 #pragma mark - UISearchDisplay Delegate methods
 
 
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:showPhotoSegue]) {
+		
+	}
+}
 
 @end

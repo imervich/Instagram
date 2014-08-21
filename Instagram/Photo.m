@@ -14,6 +14,8 @@
 @dynamic image;
 @dynamic likes;
 @dynamic location;
+@dynamic user;
+@dynamic file;
 
 + (void)load {
     [self registerSubclass];

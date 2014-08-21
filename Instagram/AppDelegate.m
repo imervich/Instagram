@@ -15,6 +15,11 @@
     [Parse setApplicationId:@"fdhpTrR9sNLAIFG3ULp0C7EErDwWdB4ij77zCzTB"
                   clientKey:@"cZFWrTM95wX1hCHVnfE9JTyG6FEONHRZWZABxUp0"];
     [PFFacebookUtils initializeFacebook];
+    
+    PFACL *defaultACL = [PFACL ACL];
+    [defaultACL setPublicReadAccess:YES];
+    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
+    
     return YES;
 }
 							

@@ -24,4 +24,6 @@
 @property id<PostsFeedTableViewCellDelegate> delegate;
 @property Photo *photo;
 
+- (void)setUserImageViewRoundCorners;
+
 @end

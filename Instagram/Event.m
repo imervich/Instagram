@@ -6,20 +6,22 @@
 //  Copyright (c) 2014 Mobile Makers. All rights reserved.
 //
 
-#import "Comment.h"
+#import "Event.h"
 #import <Parse/PFObject+Subclass.h>
 
-@implementation Comment
+@implementation Event
 
-@dynamic text;
-@dynamic userID;
-@dynamic photoID;
+@dynamic type;
+@dynamic origin;
+@dynamic destination;
+@dynamic details;
+@dynamic photo;
 
 + (void)load {
     [self registerSubclass];
 }
 
 + (NSString *)parseClassName {
-    return @"Comment";
+    return @"Event";
 }
 @end

@@ -15,6 +15,8 @@
 // cell id
 #define postsFeedCell @"PostsFeedCell"
 
+// segue
+#define showPhotoSegue @"showPhotoSegue"
 
 @interface UserProfileViewController () <UITabBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -22,7 +24,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *postsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *followersLabel;
 @property (weak, nonatomic) IBOutlet UILabel *followingLabel;
-@property (weak, nonatomic) IBOutlet UIButton *editProfileButton;
 @property (weak, nonatomic) IBOutlet UITabBar *tabBar;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -46,6 +47,7 @@
 {
 	[super viewWillAppear:animated];
 	self.navigationController.navigationBarHidden = NO;
+    self.navigationItem.title = [[PFUser currentUser] username];
 }
 
 - (void)setUserImageViewRoundCorners
@@ -86,7 +88,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-	return 0;
+	return 3;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -103,10 +105,10 @@
 
 #pragma mark - UICollectionView Delegate methods
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-	NSLog(@"selected cell, load photo details");
-}
+//- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//	NSLog(@"selected cell, load photo details");
+//}
 
 #pragma mark - UITableView DataSource methods
 
@@ -122,6 +124,15 @@
 	// configure cell
 
 	return cell;
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:showPhotoSegue]) {
+		NSLog(@"show photo");
+	}
 }
 
 @end

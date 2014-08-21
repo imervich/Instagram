@@ -9,10 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @protocol userCredentialsDelegate <NSObject>
-@required
+@optional
 -(void)userLoggedIn;
 -(void)userIsNew;
-@optional
 -(void)requestGotError:(NSString*)error;
 
 @end

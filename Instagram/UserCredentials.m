@@ -23,7 +23,7 @@
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
-            [self.delegate userLoggedIn];
+            [self.delegate userIsNew];
         } else {
             NSString *errorString = [error userInfo][@"error"];
             [self.delegate requestGotError:errorString];

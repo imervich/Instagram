@@ -29,6 +29,12 @@
     return self;
 }
 
+- (void)setUserImageViewRoundCorners
+{
+	self.userImageButton.layer.cornerRadius = self.userImageButton.bounds.size.width / 2;
+	self.userImageButton.layer.masksToBounds = YES;
+}
+
 #pragma mark - IBActions
 
 - (IBAction)onLikeButtonTapped:(UIButton *)sender

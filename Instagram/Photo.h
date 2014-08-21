@@ -12,5 +12,7 @@
 @property (retain) UIImage *image;
 @property int likes;
 @property (retain) PFGeoPoint *location;
+@property (retain) PFUser *user;
+@property (retain) PFFile *file;
 
 @end

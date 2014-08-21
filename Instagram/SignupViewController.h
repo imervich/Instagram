@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserCredentials.h"
 
 @interface SignupViewController : UIViewController
+
+@property UserCredentials *model;
 
 @end
