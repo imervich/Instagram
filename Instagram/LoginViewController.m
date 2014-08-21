@@ -7,7 +7,6 @@
 //
 
 #import "LoginViewController.h"
-#import "UserCredentials.h"
 
 #define showTabScreenSegue @"showTabScreenSegue"
 
@@ -32,13 +31,29 @@
 	self.navigationController.navigationBarHidden = NO;
 }
 
+-(void)alertWithText:(NSString*)message
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Retry", nil];
+    [alert show];
+}
+
 #pragma mark - UITextField Delegate methods
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
 	[textField resignFirstResponder];
-
-	NSLog(@"pressed enter on password textfield, check that fields are not empty");
+    
+    if ([self.usernameTextField.text isEqualToString:@""])
+    {
+        [self alertWithText:@"Username field can't be empty"];
+    } else if ([self.passwordTextField.text isEqualToString:@""])
+    {
+        [self alertWithText:@"Password field can't be empty"];
+    } else
+    {
+        [self.model loginWithParse:self.usernameTextField.text password:self.passwordTextField.text];
+    }
+	
 	return YES;
 }
 

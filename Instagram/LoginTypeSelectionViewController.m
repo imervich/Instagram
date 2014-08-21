@@ -8,6 +8,8 @@
 
 #import "LoginTypeSelectionViewController.h"
 #import "UserCredentials.h"
+#import "SignupViewController.h"
+#import "LoginViewController.h"
 
 @interface LoginTypeSelectionViewController () <userCredentialsDelegate>
 @property UserCredentials *model;
@@ -30,6 +32,7 @@
 
 -(void)userIsNew
 {
+    NSLog(@"dismiss logintype");
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -42,6 +45,18 @@
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
         [alert show];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showSignUpScreenSegue"]) {
+        SignupViewController *destiny = segue.destinationViewController;
+        destiny.model = self.model;
+    }
+    if ([segue.identifier isEqualToString:@"showLoginScreenSegue"]) {
+        LoginViewController *destiny = segue.destinationViewController;
+        destiny.model = self.model;
+    }
 }
 
 #pragma mark - IBActions

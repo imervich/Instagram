@@ -30,8 +30,9 @@
 
 - (void)checkForLoggedUser
 {
+    NSLog(@"check for user");
 	// check if user is logged in, if not, perform segue showLoginOptionsScreenSegue
-	if (![PFUser currentUser] || ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+	if (![PFUser currentUser] ) {
 		[self performSegueWithIdentifier:showLoginOptionsScreenSegue sender:self];
     }
 }
