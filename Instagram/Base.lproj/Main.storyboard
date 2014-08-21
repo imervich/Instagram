@@ -611,10 +611,6 @@
                                             <outlet property="delegate" destination="N0j-39-RIZ" id="V4E-3p-S6y"/>
                                         </connections>
                                     </tabBar>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="6tf-iD-cWr">
-                                        <rect key="frame" x="141" y="222" width="37" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </activityIndicatorView>
                                     <collectionView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="InU-7X-G9P">
                                         <rect key="frame" x="0.0" y="142" width="320" height="338"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -746,6 +742,10 @@
                                     </tableView>
                                 </subviews>
                             </scrollView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="6tf-iD-cWr">
+                                <rect key="frame" x="141" y="222" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -763,6 +763,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="6tf-iD-cWr" id="LTu-fw-nGj"/>
                         <outlet property="collectionView" destination="InU-7X-G9P" id="hwY-rK-dDZ"/>
                         <outlet property="followersLabel" destination="kSm-XI-myG" id="EEQ-et-swZ"/>
                         <outlet property="followingLabel" destination="NvU-va-t0L" id="hmu-Aq-vPg"/>

@@ -9,6 +9,7 @@
 #import "UserProfileViewController.h"
 #import "TabBarViewController.h"
 #import "PostsFeedTableViewCell.h"
+#import "Photo.h"
 
 #define UserPhotoCollectionViewCell @"UserPhotoCollectionViewCell"
 
@@ -29,6 +30,10 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
+@property NSArray *userPhotos;
+
 @end
 
 @implementation UserProfileViewController
@@ -47,6 +52,37 @@
 {
 	[super viewWillAppear:animated];
 	self.navigationController.navigationBarHidden = NO;
+
+	// if there's a user set, search with that, otherwise use the current user
+	PFUser *user = (self.user) ? self.user : [PFUser currentUser];
+
+	// set the title
+//	self.navigationItem.title = user.username;
+	// set the user profile pic
+//	self.userImageView.imageView.image =
+//	user[@"avatar"]
+
+
+
+	PFQuery *photosQuery = [PFQuery queryWithClassName:@"Photo"];
+	[photosQuery whereKey:@"user" equalTo:user];
+
+	[self.activityIndicator startAnimating];
+
+	[photosQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+		if (!error) {
+			NSLog(@"retrieved %d user photos", objects.count);
+			self.userPhotos = objects;
+
+			[self.collectionView reloadData];
+			[self.tableView reloadData];
+
+			[self.activityIndicator stopAnimating];
+
+		} else {
+			NSLog(@"Error getting user photos %@ %@", error, error.userInfo);
+		}
+	}];
 }
 
 - (void)setUserImageViewRoundCorners
@@ -87,17 +123,21 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-	return 3;
+	return self.userPhotos.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
 	UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:UserPhotoCollectionViewCell forIndexPath:indexPath];
+	Photo *photo = self.userPhotos[indexPath.row];
 
-	//	set collectionViewCell values
+	UIImageView *imageView = (UIImageView *)[cell viewWithTag:1];
 
-	//	to access the cell's imageView
-	//	UIImageView *imageView = [cell viewWithTag:1];
+	PFFile *file = photo[@"file"];
+	[file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+		UIImage *image = [UIImage imageWithData:data];
+		imageView.image = image;
+	}];
 
 	return cell;
 }
