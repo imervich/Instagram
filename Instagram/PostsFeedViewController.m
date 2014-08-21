@@ -39,13 +39,13 @@
 //        }];
 //    }
     self.photos = [NSMutableArray new];
-    [self loadRecentPictures];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
 	self.navigationController.navigationBarHidden = NO;
+    [self loadRecentPictures];
 }
 
 - (void)loadRecentPictures {
@@ -77,10 +77,9 @@
 {
 	PostsFeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:postsFeedCell];
     Photo *photo = [self.photos objectAtIndex:indexPath.row];
-//    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:photo.file.getData]];
     [cell setCellWithPhoto:photo];
+    [cell setUserImageViewRoundCorners];
 	cell.delegate = self;
-	[cell setUserImageViewRoundCorners];
 	return cell;
 }
 
@@ -89,6 +88,21 @@
 - (void)didTapLikeButtonOnCell:(PostsFeedTableViewCell *)cell
 {
 	NSLog(@"like post");
+
+    PFObject *newEvent = [PFObject objectWithClassName:@"Event"];
+    [newEvent setObject:[PFUser currentUser] forKey:@"origin"];
+    [newEvent setObject:cell.photo.user forKey:@"destination"];
+    [newEvent setObject:@"like" forKey:@"type"];
+    [newEvent setObject:cell.photo forKey:@"photo"];
+    [newEvent setObject:@"" forKey:@"details"];
+
+    [newEvent saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"Error: %@", error.userInfo);
+        }
+    }];
 }
 
 - (void)didTapCommentButtonOnCell:(PostsFeedTableViewCell *)cell
