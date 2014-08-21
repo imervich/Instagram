@@ -25,8 +25,6 @@
 @implementation PostsFeedTableViewCell
 
 - (void)setCellWithPhoto:(Photo *)photo{
-//    self.photoImageView.image = [UIImage imageWithData:photo.file.getData];
-//	PFFile *file = photo[@"file"];
 	[photo.file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
 
 		if (!error) {
@@ -36,8 +34,6 @@
 			NSLog(@"Error getting user photo on cell %@ %@", error, error.userInfo);
 		}
 	}];
-
-
 
     self.photoImageView.contentMode = UIViewContentModeScaleAspectFit;
 	self.likesLabel.text = [NSString stringWithFormat:@"%d", photo.likes];

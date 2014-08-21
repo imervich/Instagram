@@ -10,6 +10,7 @@
 #import "TabBarViewController.h"
 #import "PostsFeedTableViewCell.h"
 #import "Photo.h"
+#import "PhotoDetailViewController.h"
 
 #define UserPhotoCollectionViewCell @"UserPhotoCollectionViewCell"
 
@@ -252,7 +253,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 	if ([segue.identifier isEqualToString:showPhotoSegue]) {
-		NSLog(@"show photo");
+		PhotoDetailViewController *photoDetailVC = segue.destinationViewController;
+
+		NSIndexPath *indexPath = self.collectionView.indexPathsForSelectedItems[0];
+		Photo *photo = self.userPhotos[indexPath.row];
+		photoDetailVC.photo = photo;
 	}
 }
 

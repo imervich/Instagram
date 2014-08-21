@@ -652,7 +652,7 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="PostsFeedCell" rowHeight="409" id="85K-tX-ELG" customClass="PostsFeedTableViewCell">
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="PostsFeedCell" rowHeight="409" id="85K-tX-ELG" customClass="PostsFeedTableViewCell">
                                                 <rect key="frame" x="0.0" y="22" width="320" height="409"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="85K-tX-ELG" id="1LG-iW-bW2">
@@ -717,6 +717,7 @@
                                                             </state>
                                                             <connections>
                                                                 <action selector="onCommentButtonTapped:" destination="85K-tX-ELG" eventType="touchUpInside" id="64U-09-Ixd"/>
+                                                                <segue destination="mJa-Tj-mTc" kind="push" identifier="showCommentsSegue" id="YTD-Vu-JQZ"/>
                                                             </connections>
                                                         </button>
                                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="IaO-49-cF7">
@@ -899,7 +900,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onCommentButtonTapped:" destination="awz-RN-ao1" eventType="touchUpInside" id="rkG-9c-TuS"/>
-                                    <segue destination="mJa-Tj-mTc" kind="push" id="2kl-Yr-N5t"/>
+                                    <segue destination="mJa-Tj-mTc" kind="push" identifier="showCommentsSegue" id="2kl-Yr-N5t"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stack_of_photos-256" translatesAutoresizingMaskIntoConstraints="NO" id="oNn-ge-FMx">
@@ -946,6 +947,7 @@
                         <outlet property="activityIndicator" destination="nbC-Qy-zQv" id="6ts-jd-MXE"/>
                         <outlet property="likesLabel" destination="JbE-Ai-s2S" id="uuT-vr-anG"/>
                         <outlet property="photoImageView" destination="oNn-ge-FMx" id="csH-Lk-Rie"/>
+                        <outlet property="userImageButton" destination="cq2-fb-kZS" id="qpo-6D-Od5"/>
                         <outlet property="usernameLabel" destination="rUi-ks-fsq" id="mQU-s7-oqS"/>
                     </connections>
                 </viewController>
@@ -1387,7 +1389,7 @@
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="6" y="-605"/>
+            <point key="canvasLocation" x="6" y="-47"/>
         </scene>
     </scenes>
     <resources>
@@ -1408,4 +1410,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="YTD-Vu-JQZ"/>
+    </inferredMetricsTieBreakers>
 </document>
