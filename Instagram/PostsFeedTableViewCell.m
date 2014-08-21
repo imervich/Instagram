@@ -35,9 +35,26 @@
 		}
 	}];
 
+    self.photo = photo;
+//    self.photoImageView.image = [UIImage imageWithData:photo.file.getData];
     self.photoImageView.contentMode = UIViewContentModeScaleAspectFit;
 	self.likesLabel.text = [NSString stringWithFormat:@"%d", photo.likes];
     self.usernameLabel.text = photo.user.username;
+    [self.photo.file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+
+		if (!error) {
+			UIImage *image = [UIImage imageWithData:data];
+			self.photoImageView.image = image;
+		} else {
+			NSLog(@"Error getting user photo on cell %@ %@", error, error.userInfo);
+		}
+	}];
+
+    PFQuery *eventQuery = [PFQuery queryWithClassName:@"Event"];
+    [eventQuery whereKey:@"photo" equalTo:photo];
+    [eventQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        self.likesLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)objects.count];
+    }];
 }
 
 - (void)setUserImageViewRoundCorners
