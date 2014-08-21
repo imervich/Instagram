@@ -56,8 +56,6 @@
 	// if there's a user set, search with that, otherwise use the current user
 	PFUser *user = (self.user) ? self.user : [PFUser currentUser];
 
-	// set the title
-//	self.navigationItem.title = user.username;
 	// set the user profile pic
 //	self.userImageView.imageView.image =
 //	user[@"avatar"]
@@ -83,6 +81,7 @@
 			NSLog(@"Error getting user photos %@ %@", error, error.userInfo);
 		}
 	}];
+    self.navigationItem.title = [[PFUser currentUser] username];
 }
 
 - (void)setUserImageViewRoundCorners
