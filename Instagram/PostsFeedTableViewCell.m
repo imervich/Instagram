@@ -24,8 +24,8 @@
 @implementation PostsFeedTableViewCell
 
 - (void)cellWithPhoto:(Photo *)photo{
-    self.userImageButton.imageView.image = [UIImage imageWithData:photo.file.getData];
-    self.userImageButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.photoImageView.image = [UIImage imageWithData:photo.file.getData];
+    self.photoImageView.contentMode = UIViewContentModeScaleAspectFit;
 }
 
 - (void)setUserImageViewRoundCorners
