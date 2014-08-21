@@ -10,7 +10,7 @@
 
 #define showShareScreenSegue @"showShareScreenSegue"
 
-@interface CameraViewController ()
+@interface CameraViewController () <UIImagePickerControllerDelegate, UIActionSheetDelegate>
 
 @end
 
@@ -22,17 +22,20 @@
     // Do any additional setup after loading the view.
 
 	// check if camera is available
-	if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-    {
-		//camera is available, so show an alert to let the user choose
-		NSLog(@"show camera");
-        UIAlertView *sourceChooser = [[UIAlertView alloc] initWithTitle:@"Choose Picture Source" message:@"Do you want to take a picture or select one from the gallery?" delegate:self cancelButtonTitle:@"Camera" otherButtonTitles:@"Gallery", nil];
-        [sourceChooser show];
-	} else {
-        //there is no camera available, so only camera roll
-		NSLog(@"show camera roll");
+	BOOL cameraDeviceAvailable = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
+    BOOL photoLibraryAvailable = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary];
+    
+    if (cameraDeviceAvailable && photoLibraryAvailable) {
+        NSLog(@"camera and roll available");
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Photo", @"Choose Photo", nil];
+        [actionSheet showInView:self.view];
+    } else {
+        NSLog(@"only roll available");
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Photo", @"Choose Photo", nil];
+        [actionSheet showInView:self.view];
+        // if we don't have at least two options, we automatically show whichever is available (camera or roll)
         
-	}
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated

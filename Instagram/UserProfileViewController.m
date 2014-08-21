@@ -94,7 +94,6 @@
 
 		[photosQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
 			if (!error) {
-				NSLog(@"retrieved %d user photos", objects.count);
 				self.userPhotos = objects;
 
 				[self.collectionView reloadData];
