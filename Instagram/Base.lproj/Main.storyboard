@@ -233,7 +233,7 @@
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="like-26" translatesAutoresizingMaskIntoConstraints="NO" id="RpA-n6-Xdq">
+                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="like-26" translatesAutoresizingMaskIntoConstraints="NO" id="RpA-n6-Xdq" userLabel="Image View - heart">
                                                     <rect key="frame" x="5" y="359" width="17" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -273,6 +273,7 @@
                                             <outlet property="commentButton" destination="QUd-MD-UhO" id="oqC-6w-69F"/>
                                             <outlet property="likeButton" destination="60f-ca-veG" id="ijA-t1-e0V"/>
                                             <outlet property="likesLabel" destination="9NO-pZ-4gW" id="pUo-N6-7MF"/>
+                                            <outlet property="photoImageView" destination="RKg-YH-d5p" id="dzW-cE-7Df"/>
                                             <outlet property="userImageButton" destination="RXt-fp-gYm" id="oly-6D-OIi"/>
                                             <outlet property="usernameLabel" destination="cqj-rc-nrv" id="u6n-4K-E5X"/>
                                         </connections>
@@ -554,7 +555,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qM1-z3-Xt8">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qM1-z3-Xt8">
                                                 <rect key="frame" x="117" y="3" width="42" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
@@ -568,7 +569,7 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSm-XI-myG">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSm-XI-myG">
                                                 <rect key="frame" x="190" y="3" width="42" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
@@ -582,7 +583,7 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NvU-va-t0L">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NvU-va-t0L">
                                                 <rect key="frame" x="264" y="3" width="42" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
@@ -611,10 +612,6 @@
                                             <outlet property="delegate" destination="N0j-39-RIZ" id="V4E-3p-S6y"/>
                                         </connections>
                                     </tabBar>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="6tf-iD-cWr">
-                                        <rect key="frame" x="141" y="222" width="37" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </activityIndicatorView>
                                     <collectionView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="InU-7X-G9P">
                                         <rect key="frame" x="0.0" y="142" width="320" height="338"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -695,7 +692,7 @@
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="like-26" translatesAutoresizingMaskIntoConstraints="NO" id="8JI-l3-Z6i">
+                                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="like-26" translatesAutoresizingMaskIntoConstraints="NO" id="8JI-l3-Z6i" userLabel="Image View - heart">
                                                             <rect key="frame" x="5" y="359" width="17" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
@@ -734,6 +731,7 @@
                                                     <outlet property="commentButton" destination="JdZ-dB-Hoa" id="fjR-xX-NS4"/>
                                                     <outlet property="likeButton" destination="xDs-tL-NJL" id="165-Qu-OEd"/>
                                                     <outlet property="likesLabel" destination="pgy-Lc-v1j" id="P90-dr-Y6m"/>
+                                                    <outlet property="photoImageView" destination="fB4-2A-xJu" id="BKI-D3-m2x"/>
                                                     <outlet property="userImageButton" destination="shj-44-2wr" id="CVk-0H-0Xz"/>
                                                     <outlet property="usernameLabel" destination="z5s-6d-mID" id="UY0-1P-HKA"/>
                                                 </connections>
@@ -746,6 +744,10 @@
                                     </tableView>
                                 </subviews>
                             </scrollView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="6tf-iD-cWr">
+                                <rect key="frame" x="141" y="222" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -763,6 +765,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="6tf-iD-cWr" id="LTu-fw-nGj"/>
                         <outlet property="collectionView" destination="InU-7X-G9P" id="hwY-rK-dDZ"/>
                         <outlet property="followersLabel" destination="kSm-XI-myG" id="EEQ-et-swZ"/>
                         <outlet property="followingLabel" destination="NvU-va-t0L" id="hmu-Aq-vPg"/>

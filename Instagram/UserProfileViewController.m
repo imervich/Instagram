@@ -9,6 +9,7 @@
 #import "UserProfileViewController.h"
 #import "TabBarViewController.h"
 #import "PostsFeedTableViewCell.h"
+#import "Photo.h"
 
 #define UserPhotoCollectionViewCell @"UserPhotoCollectionViewCell"
 
@@ -29,6 +30,10 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
+@property NSArray *userPhotos;
+
 @end
 
 @implementation UserProfileViewController
@@ -47,7 +52,87 @@
 {
 	[super viewWillAppear:animated];
 	self.navigationController.navigationBarHidden = NO;
-    self.navigationItem.title = [[PFUser currentUser] username];
+
+	// if there's a user set, search with that, otherwise use the current user
+	PFUser *user = (self.user) ? self.user : [PFUser currentUser];
+
+	// set the title
+    self.navigationItem.title = user.username;
+
+	// set the user profile pic
+	PFFile *file = user[@"avatar"];
+	if (file) {
+		[file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+
+			if (!error) {
+				if (data) {
+					UIImage *image = [UIImage imageWithData:data];
+					self.userImageView.imageView.image = image;
+				}
+			} else {
+				NSLog(@"Error getting user profile pic %@ %@", error, error.userInfo);
+			}
+		}];
+	}
+
+	// get the number of user posts
+	PFQuery *postsQuery = [PFQuery queryWithClassName:@"Photo"];
+	[postsQuery whereKey:@"user" equalTo:user];
+
+	[postsQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+		if (!error) {
+			self.postsLabel.text = [NSString stringWithFormat:@"%d", number];
+		} else {
+			NSLog(@"Error getting user posts number %@ %@", error, error.userInfo);
+		}
+
+		// get the user photos
+		PFQuery *photosQuery = [PFQuery queryWithClassName:@"Photo"];
+		[photosQuery whereKey:@"user" equalTo:user];
+
+		[self.activityIndicator startAnimating];
+
+		[photosQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+			if (!error) {
+				NSLog(@"retrieved %d user photos", objects.count);
+				self.userPhotos = objects;
+
+				[self.collectionView reloadData];
+				[self.tableView reloadData];
+
+				[self.activityIndicator stopAnimating];
+
+			} else {
+				NSLog(@"Error getting user photos %@ %@", error, error.userInfo);
+			}
+		}];
+	}];
+
+	// get the number of followers
+	PFQuery *followersQuery = [PFQuery queryWithClassName:@"Event"];
+	[followersQuery whereKey:@"type" equalTo:@"follow"];
+	[followersQuery whereKey:@"destination" equalTo:user];
+
+	[followersQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+		if (!error) {
+			self.followersLabel.text = [NSString stringWithFormat:@"%d", number];
+		} else {
+			NSLog(@"Error getting followers %@ %@", error, error.userInfo);
+		}
+
+		// get the number of following
+		PFQuery *followingQuery = [PFQuery queryWithClassName:@"Event"];
+		[followingQuery whereKey:@"type" equalTo:@"follow"];
+		[followingQuery whereKey:@"origin" equalTo:user];
+
+		[followersQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+			if (!error) {
+				self.followingLabel.text = [NSString stringWithFormat:@"%d", number];
+			} else {
+				NSLog(@"Error getting following %@ %@", error, error.userInfo);
+			}
+		}];
+	}];
 }
 
 - (void)setUserImageViewRoundCorners
@@ -74,11 +159,9 @@
 	// item at 1 = table view
 
 	if ([item isEqual:tabBar.items[0]]) {
-		NSLog(@"0");
 		self.collectionView.hidden = NO;
 		self.tableView.hidden = YES;
 	} else {
-		NSLog(@"1");
 		self.collectionView.hidden = YES;
 		self.tableView.hidden = NO;
 	}
@@ -88,17 +171,26 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-	return 3;
+	return self.userPhotos.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
 	UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:UserPhotoCollectionViewCell forIndexPath:indexPath];
+	Photo *photo = self.userPhotos[indexPath.row];
 
-	//	set collectionViewCell values
+	UIImageView *imageView = (UIImageView *)[cell viewWithTag:1];
 
-	//	to access the cell's imageView
-	//	UIImageView *imageView = [cell viewWithTag:1];
+	PFFile *file = photo[@"file"];
+	[file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+
+		if (!error) {
+			UIImage *image = [UIImage imageWithData:data];
+			imageView.image = image;
+		} else {
+			NSLog(@"Error getting user photos %@ %@", error, error.userInfo);
+		}
+	}];
 
 	return cell;
 }
@@ -122,6 +214,24 @@
 	PostsFeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:postsFeedCell];
 
 	// configure cell
+
+//	cell.delegate = self;
+
+//	PFFile *file = photo[@"file"];
+//	[file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+//
+//		if (!error) {
+//			UIImage *image = [UIImage imageWithData:data];
+//		} else {
+//			NSLog(@"Error getting user photos %@ %@", error, error.userInfo);
+//		}
+//	}];
+
+//	@property (weak, nonatomic) IBOutlet UIButton *userImageButton;
+//	@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+//	@property (weak, nonatomic) IBOutlet UILabel *likesLabel;
+//	@property (weak, nonatomic) IBOutlet UIButton *likeButton;
+//	@property (weak, nonatomic) IBOutlet UIButton *commentButton;
 
 	return cell;
 }

@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 
 @end
 
