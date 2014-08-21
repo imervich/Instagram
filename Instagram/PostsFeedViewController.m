@@ -53,6 +53,7 @@
     NSDate *fiveDaysAgo = [[NSDate date] dateByAddingTimeInterval:-5*24*60*60];
     //retrieve photos within 5 days from actual date
     [photoQuery whereKey:@"updatedAt" greaterThan:fiveDaysAgo];
+    [photoQuery includeKey:@"user"];
     [photoQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
