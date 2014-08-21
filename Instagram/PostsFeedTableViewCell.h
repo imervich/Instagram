@@ -10,6 +10,7 @@
 #import "Photo.h"
 
 @class PostsFeedTableViewCell;
+@class Photo;
 
 @protocol PostsFeedTableViewCellDelegate
 
@@ -23,7 +24,6 @@
 
 @property id<PostsFeedTableViewCellDelegate> delegate;
 @property Photo *photo;
-- (void)cellWithPhoto:(Photo *)photo;
+- (void)setCellWithPhoto:(Photo *)photo;
 - (void)setUserImageViewRoundCorners;
-
 @end

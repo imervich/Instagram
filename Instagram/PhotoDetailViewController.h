@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class Photo;
 @interface PhotoDetailViewController : UIViewController
+
+@property Photo *photo;
 
 @end

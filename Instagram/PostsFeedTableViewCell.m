@@ -7,6 +7,7 @@
 //
 
 #import "PostsFeedTableViewCell.h"
+#import "Photo.h"
 
 @interface PostsFeedTableViewCell ()
 
@@ -23,9 +24,20 @@
 
 @implementation PostsFeedTableViewCell
 
-- (void)cellWithPhoto:(Photo *)photo{
-    self.photoImageView.image = [UIImage imageWithData:photo.file.getData];
+- (void)setCellWithPhoto:(Photo *)photo{
+	[photo.file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+
+		if (!error) {
+			UIImage *image = [UIImage imageWithData:data];
+			self.photoImageView.image = image;
+		} else {
+			NSLog(@"Error getting user photo on cell %@ %@", error, error.userInfo);
+		}
+	}];
+
     self.photoImageView.contentMode = UIViewContentModeScaleAspectFit;
+	self.likesLabel.text = [NSString stringWithFormat:@"%d", photo.likes];
+    self.usernameLabel.text = photo.user.username;
 }
 
 - (void)setUserImageViewRoundCorners

@@ -10,6 +10,7 @@
 #import "TabBarViewController.h"
 #import "PostsFeedTableViewCell.h"
 #import "Photo.h"
+#import "PhotoDetailViewController.h"
 
 #define UserPhotoCollectionViewCell @"UserPhotoCollectionViewCell"
 
@@ -19,7 +20,10 @@
 // segue
 #define showPhotoSegue @"showPhotoSegue"
 
-@interface UserProfileViewController () <UITabBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate>
+// cell height
+#define PostsFeedTableViewCellHeight 409
+
+@interface UserProfileViewController () <UITabBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate, PostsFeedTableViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *userImageView;
 @property (weak, nonatomic) IBOutlet UILabel *postsLabel;
@@ -89,6 +93,7 @@
 		// get the user photos
 		PFQuery *photosQuery = [PFQuery queryWithClassName:@"Photo"];
 		[photosQuery whereKey:@"user" equalTo:user];
+		[photosQuery includeKey:@"user"];
 
 		[self.activityIndicator startAnimating];
 
@@ -194,6 +199,11 @@
 	return cell;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return PostsFeedTableViewCellHeight;
+}
+
 #pragma mark - UICollectionView Delegate methods
 
 //- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -205,34 +215,36 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 0;
+	return self.userPhotos.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	Photo *photo = self.userPhotos[indexPath.row];
 	PostsFeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:postsFeedCell];
+	cell.delegate = self;
 
-	// configure cell
-
-//	cell.delegate = self;
-
-//	PFFile *file = photo[@"file"];
-//	[file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-//
-//		if (!error) {
-//			UIImage *image = [UIImage imageWithData:data];
-//		} else {
-//			NSLog(@"Error getting user photos %@ %@", error, error.userInfo);
-//		}
-//	}];
-
-//	@property (weak, nonatomic) IBOutlet UIButton *userImageButton;
-//	@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-//	@property (weak, nonatomic) IBOutlet UILabel *likesLabel;
-//	@property (weak, nonatomic) IBOutlet UIButton *likeButton;
-//	@property (weak, nonatomic) IBOutlet UIButton *commentButton;
+	[cell setCellWithPhoto:photo];
+	[cell setUserImageViewRoundCorners];
 
 	return cell;
+}
+
+#pragma mark - PostsFeedTableViewCell Delegate methods
+
+- (void)didTapLikeButtonOnCell:(PostsFeedTableViewCell *)cell
+{
+	NSLog(@"like post");
+}
+
+- (void)didTapCommentButtonOnCell:(PostsFeedTableViewCell *)cell
+{
+	NSLog(@"open post comments");
+}
+
+- (void)didTapUserImageButtonOnCell:(PostsFeedTableViewCell *)cell
+{
+	NSLog(@"go to user profile");
 }
 
 #pragma mark - Navigation
@@ -240,7 +252,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 	if ([segue.identifier isEqualToString:showPhotoSegue]) {
-		NSLog(@"show photo");
+		PhotoDetailViewController *photoDetailVC = segue.destinationViewController;
+
+		NSIndexPath *indexPath = self.collectionView.indexPathsForSelectedItems[0];
+		Photo *photo = self.userPhotos[indexPath.row];
+		photoDetailVC.photo = photo;
 	}
 }
 
