@@ -271,6 +271,7 @@
                                         <connections>
                                             <outlet property="activityIndicator" destination="3Gd-8s-WSd" id="EGi-RM-NlI"/>
                                             <outlet property="commentButton" destination="QUd-MD-UhO" id="oqC-6w-69F"/>
+                                            <outlet property="imageView" destination="RKg-YH-d5p" id="eeV-xA-dE7"/>
                                             <outlet property="likeButton" destination="60f-ca-veG" id="ijA-t1-e0V"/>
                                             <outlet property="likesLabel" destination="9NO-pZ-4gW" id="pUo-N6-7MF"/>
                                             <outlet property="userImageButton" destination="RXt-fp-gYm" id="oly-6D-OIi"/>
