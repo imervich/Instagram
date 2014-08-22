@@ -84,6 +84,10 @@
 
 	// search users first
 	self.searchScope = searchScopeUsers;
+    PFQuery *photoQuery = [Photo query];
+    [photoQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        //
+    }];
 }
 
 #pragma mark - UICollectionView DataSource methods
