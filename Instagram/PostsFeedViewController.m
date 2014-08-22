@@ -60,13 +60,11 @@
     [photoQuery includeKey:@"user"];
     [photoQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            for (PFObject *object in objects) {
-//                Photo *photo = (Photo*)object;
-                [self.photos addObject:object];
-            }
-
+			self.photos = [objects mutableCopy];
             [self.tableView reloadData];
-        }
+        } else {
+			NSLog(@"error getting photos %@ %@", error, error.userInfo);
+		}
     }];
 }
 
