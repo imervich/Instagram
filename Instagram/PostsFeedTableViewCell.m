@@ -25,6 +25,8 @@
 @implementation PostsFeedTableViewCell
 
 - (void)setCellWithPhoto:(Photo *)photo{
+	self.photo = photo;
+
 	[photo.file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
 
 		if (!error) {
@@ -35,9 +37,31 @@
 		}
 	}];
 
+//    self.photoImageView.image = [UIImage imageWithData:photo.file.getData];
+
     self.photoImageView.contentMode = UIViewContentModeScaleAspectFit;
 	self.likesLabel.text = [NSString stringWithFormat:@"%d", photo.likes];
     self.usernameLabel.text = photo.user.username;
+
+	// get the likes
+	if (!photo.likes) {
+		PFQuery *eventQuery = [PFQuery queryWithClassName:@"Event"];
+		[eventQuery whereKey:@"photo" equalTo:photo];
+		[eventQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+			if (!error) {
+				photo.likes = number;
+				[self.photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+					if (!error) {
+						self.likesLabel.text = [NSString stringWithFormat:@"%d", photo.likes];
+					} else {
+						NSLog(@"error setting likes for photo %@ %@", error, error.userInfo);
+					}
+				}];
+			} else {
+				NSLog(@"error getting likes %@ %@", error, error.userInfo);
+			}
+		}];
+	}
 }
 
 - (void)setUserImageViewRoundCorners

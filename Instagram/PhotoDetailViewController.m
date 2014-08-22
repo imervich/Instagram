@@ -8,6 +8,10 @@
 
 #import "PhotoDetailViewController.h"
 #import "Photo.h"
+#import "CommentsViewController.h"
+
+// segue
+#define showCommentsSegue @"showCommentsSegue"
 
 @interface PhotoDetailViewController ()
 
@@ -24,6 +28,37 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.photo.file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+
+		if (!error) {
+			UIImage *image = [UIImage imageWithData:data];
+			self.photoImageView.image = image;
+		} else {
+			NSLog(@"Error getting user photo on cell %@ %@", error, error.userInfo);
+		}
+	}];
+    self.photoImageView.contentMode = UIViewContentModeScaleAspectFit;
+	self.likesLabel.text = [NSString stringWithFormat:@"%d", self.photo.likes];
+    self.usernameLabel.text = self.photo.user.username;
+
+	if (!self.photo.likes) {
+		PFQuery *eventQuery = [PFQuery queryWithClassName:@"Event"];
+		[eventQuery whereKey:@"photo" equalTo:self.photo];
+		[eventQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+			if (!error) {
+				self.photo.likes = number;
+				[self.photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+					if (!error) {
+						self.likesLabel.text = [NSString stringWithFormat:@"%d", self.photo.likes];
+					} else {
+						NSLog(@"error setting likes for photo %@ %@", error, error.userInfo);
+					}
+				}];
+			} else {
+				NSLog(@"error getting likes %@ %@", error, error.userInfo);
+			}
+		}];
+	}
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -47,12 +82,56 @@
 
 - (IBAction)onLikeButtonTapped:(UIButton *)sender
 {
-	NSLog(@"like photo");
+    PFQuery *likeQuery = [PFQuery queryWithClassName:@"Event"];
+    [likeQuery whereKey:@"photo" equalTo:self.photo];
+    [likeQuery whereKey:@"origin" equalTo:[PFUser currentUser]];
+    [likeQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error && objects.count == 0) {
+            PFObject *newEvent = [PFObject objectWithClassName:@"Event"];
+            [newEvent setObject:[PFUser currentUser] forKey:@"origin"];
+            [newEvent setObject:self.photo.user forKey:@"destination"];
+            [newEvent setObject:@"like" forKey:@"type"];
+            [newEvent setObject:self.photo forKey:@"photo"];
+            [newEvent setObject:@"" forKey:@"details"];
+
+            [newEvent saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (!error) {
+					self.photo.likes ++;
+					[self.photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+						if (!error) {
+							if (succeeded) {
+								NSLog(@"like added to photo");
+								self.likesLabel.text = [NSString stringWithFormat:@"%d", self.photo.likes];
+							}
+						} else {
+							NSLog(@"error setting photo likes %@ %@", error, error.userInfo);
+						}
+					}];
+                } else {
+                    NSLog(@"Error: %@", error.userInfo);
+                }
+            }];
+        }
+    }];
 }
 
-- (IBAction)onCommentButtonTapped:(UIButton *)sender
+//- (IBAction)onCommentButtonTapped:(UIButton *)sender
+//{
+//	NSLog(@"open comments from photo details");
+//}
+
+#pragma mark - UITableView Delegate
+
+
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-	NSLog(@"open comments");
+	if ([segue.identifier isEqualToString:showCommentsSegue]) {
+		CommentsViewController *commentsVC = segue.destinationViewController;
+		commentsVC.photo = self.photo;
+	}
 }
 
 #pragma mark - Helper methods

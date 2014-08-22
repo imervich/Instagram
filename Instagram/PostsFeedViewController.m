@@ -9,9 +9,13 @@
 #import "PostsFeedViewController.h"
 #import "PostsFeedTableViewCell.h"
 #import "Photo.h"
+#import "CommentsViewController.h"
 
 // cell id
 #define postsFeedCell @"PostsFeedCell"
+
+// segue
+#define showCommentsSegue @"showCommentsSegue"
 
 @interface PostsFeedViewController () <UITableViewDataSource, UITableViewDelegate, PostsFeedTableViewCellDelegate>
 
@@ -39,13 +43,13 @@
 //        }];
 //    }
     self.photos = [NSMutableArray new];
-    [self loadRecentPictures];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
 	self.navigationController.navigationBarHidden = NO;
+    [self loadRecentPictures];
 }
 
 - (void)loadRecentPictures {
@@ -77,10 +81,9 @@
 {
 	PostsFeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:postsFeedCell];
     Photo *photo = [self.photos objectAtIndex:indexPath.row];
-//    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:photo.file.getData]];
     [cell setCellWithPhoto:photo];
+    [cell setUserImageViewRoundCorners];
 	cell.delegate = self;
-	[cell setUserImageViewRoundCorners];
 	return cell;
 }
 
@@ -88,17 +91,60 @@
 
 - (void)didTapLikeButtonOnCell:(PostsFeedTableViewCell *)cell
 {
-	NSLog(@"like post");
+    PFQuery *likeQuery = [PFQuery queryWithClassName:@"Event"];
+    [likeQuery whereKey:@"photo" equalTo:cell.photo];
+    [likeQuery whereKey:@"origin" equalTo:[PFUser currentUser]];
+    [likeQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error && objects.count == 0) {
+            PFObject *newEvent = [PFObject objectWithClassName:@"Event"];
+            [newEvent setObject:[PFUser currentUser] forKey:@"origin"];
+            [newEvent setObject:cell.photo.user forKey:@"destination"];
+            [newEvent setObject:@"like" forKey:@"type"];
+            [newEvent setObject:cell.photo forKey:@"photo"];
+            [newEvent setObject:@"" forKey:@"details"];
+
+            [newEvent saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (!error) {
+					cell.photo.likes ++;
+					[cell.photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+						if (!error) {
+							if (succeeded) {
+								NSLog(@"like added to photo");
+								NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+								[self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+							}
+						} else {
+							NSLog(@"error setting photo likes %@ %@", error, error.userInfo);
+						}
+					}];
+                } else {
+                    NSLog(@"Error: %@", error.userInfo);
+                }
+            }];
+        }
+    }];
 }
 
 - (void)didTapCommentButtonOnCell:(PostsFeedTableViewCell *)cell
 {
-	NSLog(@"open post comments");
+	NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+	Photo *photo = self.photos[indexPath.row];
+	[self performSegueWithIdentifier:showCommentsSegue sender:photo];
 }
 
 - (void)didTapUserImageButtonOnCell:(PostsFeedTableViewCell *)cell
 {
 	NSLog(@"go to user profile");
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:showCommentsSegue]) {
+		CommentsViewController *commentsVC = segue.destinationViewController;
+		commentsVC.photo = sender;
+	}
 }
 
 @end

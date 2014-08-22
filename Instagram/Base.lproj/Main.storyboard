@@ -259,7 +259,6 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="onCommentButtonTapped:" destination="mwh-aS-6bf" eventType="touchUpInside" id="b31-hP-NfL"/>
-                                                        <segue destination="VsA-xm-HrG" kind="push" id="Bhs-yY-bt7"/>
                                                     </connections>
                                                 </button>
                                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="3Gd-8s-WSd">
@@ -291,6 +290,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="Pup-0O-fGY" id="fBN-76-1fV"/>
+                        <segue destination="VsA-xm-HrG" kind="push" identifier="showCommentsSegue" id="a4v-xf-qzZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lYx-c7-OUR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -637,9 +637,6 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <connections>
-                                                    <segue destination="awz-RN-ao1" kind="push" identifier="showPhotoSegue" id="xVJ-GM-3s6"/>
-                                                </connections>
                                             </collectionViewCell>
                                         </cells>
                                         <connections>
@@ -717,7 +714,6 @@
                                                             </state>
                                                             <connections>
                                                                 <action selector="onCommentButtonTapped:" destination="85K-tX-ELG" eventType="touchUpInside" id="64U-09-Ixd"/>
-                                                                <segue destination="mJa-Tj-mTc" kind="push" identifier="showCommentsSegue" id="YTD-Vu-JQZ"/>
                                                             </connections>
                                                         </button>
                                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="IaO-49-cF7">
@@ -773,6 +769,8 @@
                         <outlet property="tabBar" destination="sBI-Aa-xCF" id="z4e-1Y-oct"/>
                         <outlet property="tableView" destination="B9x-y5-ovJ" id="g7d-jy-4Jf"/>
                         <outlet property="userImageView" destination="Ecn-Ss-iFK" id="QtD-rA-8OB"/>
+                        <segue destination="mJa-Tj-mTc" kind="push" identifier="showCommentsSegue" id="2eg-RN-D6A"/>
+                        <segue destination="awz-RN-ao1" kind="push" identifier="showPhotoSegue" id="8vT-18-vbs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IjQ-bK-1lc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -899,7 +897,6 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="onCommentButtonTapped:" destination="awz-RN-ao1" eventType="touchUpInside" id="rkG-9c-TuS"/>
                                     <segue destination="mJa-Tj-mTc" kind="push" identifier="showCommentsSegue" id="2kl-Yr-N5t"/>
                                 </connections>
                             </button>
@@ -1042,6 +1039,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="r0i-yl-Fyh"/>
                     <connections>
                         <outlet property="accessoryView" destination="cKO-If-5Yr" id="mM3-0Y-tZv"/>
                         <outlet property="commentTextField" destination="0Wf-Me-hgD" id="ADM-FB-vzY"/>
@@ -1125,7 +1123,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onCommentButtonTapped:" destination="Zwn-xg-fBU" eventType="touchUpInside" id="Ka0-Zx-Qcf"/>
-                                    <segue destination="tSc-V9-LVU" kind="push" id="vN3-V1-Lq8"/>
+                                    <segue destination="tSc-V9-LVU" kind="push" identifier="showCommentsSegue" id="vN3-V1-Lq8"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stack_of_photos-256" translatesAutoresizingMaskIntoConstraints="NO" id="XGm-7H-rsU">
@@ -1389,7 +1387,7 @@
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="6" y="-47"/>
+            <point key="canvasLocation" x="-419" y="-9"/>
         </scene>
     </scenes>
     <resources>
@@ -1411,6 +1409,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="YTD-Vu-JQZ"/>
+        <segue reference="2kl-Yr-N5t"/>
     </inferredMetricsTieBreakers>
 </document>

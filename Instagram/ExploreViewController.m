@@ -7,6 +7,7 @@
 //
 
 #import "ExploreViewController.h"
+#import "Event.h"
 
 // search scopes
 #define searchScopeUsers 0
@@ -32,6 +33,43 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+//	PFQuery *photosQuery = [PFQuery queryWithClassName:@"Photo"];
+//	[photosQuery includeKey:@"user"];
+//	photosQuery.limit = 50;
+//
+//	[photosQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//
+//		NSArray *photos = objects;
+//
+//		for (Photo *photo in photos) {
+//			PFQuery *likesQuery = [PFQuery queryWithClassName:@"Event"];
+//			[likesQuery whereKey:@"type" equalTo:@"like"];
+//			[likesQuery whereKey:@"photo" equalTo:photo];
+//
+//			[likesQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+//				photo.likes = number;
+//			}];
+//		}
+//
+//		// sort descending by likes
+//		[photos sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+//			Photo *photo1 = (Photo *)obj1;
+//			Photo *photo2 = (Photo *)obj2;
+//
+//			if (photo1.likes > photo2.likes) {
+//				return NSOrderedDescending;
+//			} else if (photo2.likes > photo1.likes) {
+//				return NSOrderedAscending;
+//			}
+//
+//			return NSOrderedSame;
+//		}];
+//
+//		for (Photo *photo in photos) {
+//			NSLog(@"photo likes %@ %d", photo.objectId, photo.likes);
+//		}
+//	}];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -62,6 +100,7 @@
 
 //	to access the cell's activityIndicatorView
 //	UIActivityIndicatorView *activityIndicator = [cell viewWithTag:2];
+
 
 	return cell;
 }
