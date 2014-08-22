@@ -10,4 +10,6 @@
 
 @interface SharePhotoViewController : UIViewController
 
+@property UIImage *image;
+
 @end
