@@ -41,11 +41,24 @@
 	self.likesLabel.text = [NSString stringWithFormat:@"%d", self.photo.likes];
     self.usernameLabel.text = self.photo.user.username;
 
-    PFQuery *eventQuery = [PFQuery queryWithClassName:@"Event"];
-    [eventQuery whereKey:@"photo" equalTo:self.photo];
-    [eventQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        self.likesLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)objects.count];
-    }];
+	if (!self.photo.likes) {
+		PFQuery *eventQuery = [PFQuery queryWithClassName:@"Event"];
+		[eventQuery whereKey:@"photo" equalTo:self.photo];
+		[eventQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+			if (!error) {
+				self.photo.likes = number;
+				[self.photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+					if (!error) {
+						self.likesLabel.text = [NSString stringWithFormat:@"%d", self.photo.likes];
+					} else {
+						NSLog(@"error setting likes for photo %@ %@", error, error.userInfo);
+					}
+				}];
+			} else {
+				NSLog(@"error getting likes %@ %@", error, error.userInfo);
+			}
+		}];
+	}
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -83,7 +96,17 @@
 
             [newEvent saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (!error) {
-                    self.likesLabel.text = [NSString stringWithFormat:@"%d", [self.likesLabel.text intValue] + 1];
+					self.photo.likes ++;
+					[self.photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+						if (!error) {
+							if (succeeded) {
+								NSLog(@"like added to photo");
+								self.likesLabel.text = [NSString stringWithFormat:@"%d", self.photo.likes];
+							}
+						} else {
+							NSLog(@"error setting photo likes %@ %@", error, error.userInfo);
+						}
+					}];
                 } else {
                     NSLog(@"Error: %@", error.userInfo);
                 }

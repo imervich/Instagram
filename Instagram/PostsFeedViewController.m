@@ -60,13 +60,11 @@
     [photoQuery includeKey:@"user"];
     [photoQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            for (PFObject *object in objects) {
-//                Photo *photo = (Photo*)object;
-                [self.photos addObject:object];
-            }
-
+			self.photos = [objects mutableCopy];
             [self.tableView reloadData];
-        }
+        } else {
+			NSLog(@"error getting photos %@ %@", error, error.userInfo);
+		}
     }];
 }
 
@@ -105,7 +103,18 @@
 
             [newEvent saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (!error) {
-                    [self.tableView reloadData];
+					cell.photo.likes ++;
+					[cell.photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+						if (!error) {
+							if (succeeded) {
+								NSLog(@"like added to photo");
+								NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+								[self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+							}
+						} else {
+							NSLog(@"error setting photo likes %@ %@", error, error.userInfo);
+						}
+					}];
                 } else {
                     NSLog(@"Error: %@", error.userInfo);
                 }
