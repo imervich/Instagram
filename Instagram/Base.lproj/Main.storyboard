@@ -1028,9 +1028,6 @@
                                                     <state key="normal" image="user-64">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="onUserImageButtonTapped:" destination="Zwn-xg-fBU" eventType="touchUpInside" id="QcH-0E-gwm"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -1234,9 +1231,6 @@
                                                     <state key="normal" image="user-64">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="onUserImageButtonTapped:" destination="Zwn-xg-fBU" eventType="touchUpInside" id="ANP-iP-cQT"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
