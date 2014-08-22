@@ -105,7 +105,18 @@
 
             [newEvent saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (!error) {
-                    [self.tableView reloadData];
+					cell.photo.likes ++;
+					[cell.photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+						if (!error) {
+							if (succeeded) {
+								NSLog(@"like added to photo");
+								NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+								[self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+							}
+						} else {
+							NSLog(@"error setting photo likes %@ %@", error, error.userInfo);
+						}
+					}];
                 } else {
                     NSLog(@"Error: %@", error.userInfo);
                 }
