@@ -28,6 +28,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.photo.file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+
+		if (!error) {
+			UIImage *image = [UIImage imageWithData:data];
+			self.photoImageView.image = image;
+		} else {
+			NSLog(@"Error getting user photo on cell %@ %@", error, error.userInfo);
+		}
+	}];
+    self.photoImageView.contentMode = UIViewContentModeScaleAspectFit;
+	self.likesLabel.text = [NSString stringWithFormat:@"%d", self.photo.likes];
+    self.usernameLabel.text = self.photo.user.username;
+
+    PFQuery *eventQuery = [PFQuery queryWithClassName:@"Event"];
+    [eventQuery whereKey:@"photo" equalTo:self.photo];
+    [eventQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        self.likesLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)objects.count];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -58,6 +76,10 @@
 //{
 //	NSLog(@"open comments from photo details");
 //}
+
+#pragma mark - UITableView Delegate
+
+
 
 #pragma mark - Navigation
 
