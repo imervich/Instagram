@@ -69,7 +69,27 @@
 
 - (IBAction)onLikeButtonTapped:(UIButton *)sender
 {
-	NSLog(@"like photo");
+    PFQuery *likeQuery = [PFQuery queryWithClassName:@"Event"];
+    [likeQuery whereKey:@"photo" equalTo:self.photo];
+    [likeQuery whereKey:@"origin" equalTo:[PFUser currentUser]];
+    [likeQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error && objects.count == 0) {
+            PFObject *newEvent = [PFObject objectWithClassName:@"Event"];
+            [newEvent setObject:[PFUser currentUser] forKey:@"origin"];
+            [newEvent setObject:self.photo.user forKey:@"destination"];
+            [newEvent setObject:@"like" forKey:@"type"];
+            [newEvent setObject:self.photo forKey:@"photo"];
+            [newEvent setObject:@"" forKey:@"details"];
+
+            [newEvent saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (!error) {
+                    self.likesLabel.text = [NSString stringWithFormat:@"%d", [self.likesLabel.text intValue] + 1];
+                } else {
+                    NSLog(@"Error: %@", error.userInfo);
+                }
+            }];
+        }
+    }];
 }
 
 //- (IBAction)onCommentButtonTapped:(UIButton *)sender

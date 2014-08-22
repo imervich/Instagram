@@ -91,8 +91,6 @@
 
 - (void)didTapLikeButtonOnCell:(PostsFeedTableViewCell *)cell
 {
-	NSLog(@"like post");
-
     PFQuery *likeQuery = [PFQuery queryWithClassName:@"Event"];
     [likeQuery whereKey:@"photo" equalTo:cell.photo];
     [likeQuery whereKey:@"origin" equalTo:[PFUser currentUser]];
