@@ -22,6 +22,9 @@
 @interface ExploreViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) UITableView *tableView;
+@property (weak, nonatomic) UISearchBar *searhBar;
+@property (weak, nonatomic) NSArray *results;
 
 @property int searchScope;
 
@@ -78,7 +81,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 5;
+	return self.results.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -88,7 +91,8 @@
 	if (!cell) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ExploreSearchTableViewCell];
 	}
-
+    PFUser *user = (PFUser *)[self.results objectAtIndex:tableView.indexPathForSelectedRow.row];
+    cell.detailTextLabel.text = user.username;
 	// set search tableViewCell values
 
 	return cell;
@@ -99,7 +103,22 @@
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
 {
 	// called when the searchbar is tapped
+    NSLog(@"searchBarShouldBeginEditing");
 	return YES;
+}
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    NSLog(@"Typing...");
+    if (searchBar.text.length >= 3) {
+        PFQuery *searchQuery = [PFUser query];
+        [searchQuery whereKey:@"username" hasPrefix:searchBar.text];
+        [searchQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                self.results = objects;
+                [self.searchDisplayController.searchResultsTableView reloadData];
+            }
+        }];
+    }
 }
 
 - (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
