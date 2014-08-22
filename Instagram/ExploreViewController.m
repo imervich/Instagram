@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) UITableView *tableView;
 @property (weak, nonatomic) UISearchBar *searhBar;
-@property (weak, nonatomic) NSArray *results;
+@property (strong, nonatomic) NSArray *results;
 
 @property int searchScope;
 
@@ -35,6 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    self.results = [NSArray array];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -91,9 +92,9 @@
 	if (!cell) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ExploreSearchTableViewCell];
 	}
-    PFUser *user = (PFUser *)[self.results objectAtIndex:tableView.indexPathForSelectedRow.row];
-    cell.detailTextLabel.text = user.username;
-	// set search tableViewCell values
+    PFObject *user = [self.results objectAtIndex:tableView.indexPathForSelectedRow.row];
+    cell.textLabel.text = user[@"username"];
+	// set search tableViewCellcoo values
 
 	return cell;
 }
@@ -107,27 +108,27 @@
 	return YES;
 }
 
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-    NSLog(@"Typing...");
-    if (searchBar.text.length >= 3) {
-        PFQuery *searchQuery = [PFUser query];
-        [searchQuery whereKey:@"username" hasPrefix:searchBar.text];
-        [searchQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if (!error) {
-                self.results = objects;
-                [self.searchDisplayController.searchResultsTableView reloadData];
-            }
-        }];
-    }
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    PFQuery *searchQuery = [PFUser query];
+    [searchQuery whereKey:@"username" hasPrefix:searchBar.text];
+    [searchQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            self.results = objects;
+
+            [self.searchDisplayController.searchResultsTableView reloadData];
+        }
+    }];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
 {
 	switch (selectedScope) {
 		case searchScopeUsers:
+            self.searchScope = searchScopeUsers;
 			NSLog(@"Search users");
 			break;
 		case searchScopeHashtags:
+            self.searchScope = searchScopeHashtags;
 			NSLog(@"Search hashtags");
 			break;
 	}
