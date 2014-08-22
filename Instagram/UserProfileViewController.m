@@ -59,16 +59,19 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
+
+	if (!self.user) {
+		//if property user is nil, it's the current user profile
+		self.user = [PFUser currentUser];
+	}
+
 	self.navigationController.navigationBarHidden = NO;
 
-	// if there's a user set, search with that, otherwise use the current user
-	PFUser *user = (self.user) ? self.user : [PFUser currentUser];
-
 	// set the title
-    self.navigationItem.title = user.username;
+    self.navigationItem.title = self.user.username;
 
 	// set the user profile pic
-	PFFile *file = user[@"avatar"];
+	PFFile *file = self.user[@"avatar"];
 	if (file) {
 		[file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
 
@@ -85,7 +88,7 @@
 
 	// get the number of user posts
 	PFQuery *postsQuery = [PFQuery queryWithClassName:@"Photo"];
-	[postsQuery whereKey:@"user" equalTo:user];
+	[postsQuery whereKey:@"user" equalTo:self.user];
 
 	[postsQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
 		if (!error) {
@@ -96,7 +99,7 @@
 
 		// get the user photos
 		PFQuery *photosQuery = [PFQuery queryWithClassName:@"Photo"];
-		[photosQuery whereKey:@"user" equalTo:user];
+		[photosQuery whereKey:@"user" equalTo:self.user];
 		[photosQuery includeKey:@"user"];
 
 		[self.activityIndicator startAnimating];
@@ -120,7 +123,7 @@
 	// get the number of followers
 	PFQuery *followersQuery = [PFQuery queryWithClassName:@"Event"];
 	[followersQuery whereKey:@"type" equalTo:@"follow"];
-	[followersQuery whereKey:@"destination" equalTo:user];
+	[followersQuery whereKey:@"destination" equalTo:self.user];
 
 	[followersQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
 		if (!error) {
@@ -132,7 +135,7 @@
 		// get the number of following
 		PFQuery *followingQuery = [PFQuery queryWithClassName:@"Event"];
 		[followingQuery whereKey:@"type" equalTo:@"follow"];
-		[followingQuery whereKey:@"origin" equalTo:user];
+		[followingQuery whereKey:@"origin" equalTo:self.user];
 
 		[followersQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
 			if (!error) {

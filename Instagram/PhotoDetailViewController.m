@@ -9,6 +9,7 @@
 #import "PhotoDetailViewController.h"
 #import "Photo.h"
 #import "CommentsViewController.h"
+#import "Event.h"
 
 // segue
 #define showCommentsSegue @"showCommentsSegue"
@@ -51,7 +52,22 @@
 
 - (IBAction)onLikeButtonTapped:(UIButton *)sender
 {
-	NSLog(@"like photo");
+	NSLog(@"like photo on collection view");
+
+	Event *like = [Event object];
+	like.origin = [PFUser currentUser];
+	like.destination = self.photo.user;
+	like.type = @"like";
+	like.photo = self.photo;
+	like.details = @"";
+
+	[like saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+		if (!error) {
+			[self reload];
+		} else {
+			NSLog(@"Error liking photo %@ %@", error, error.userInfo);
+		}
+	}];
 }
 
 //- (IBAction)onCommentButtonTapped:(UIButton *)sender
@@ -87,9 +103,15 @@
 	}];
 
     self.photoImageView.contentMode = UIViewContentModeScaleAspectFit;
-	self.likesLabel.text = [NSString stringWithFormat:@"%d", self.photo.likes];
-    self.usernameLabel.text = self.photo.user.username;
 
+	//likes
+	PFQuery *eventQuery = [PFQuery queryWithClassName:@"Event"];
+    [eventQuery whereKey:@"photo" equalTo:self.photo];
+    [eventQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        self.likesLabel.text = [NSString stringWithFormat:@"%d", number];
+    }];
+
+	self.usernameLabel.text = self.photo.user.username;
 	[self setUserImageViewRoundCorners];
 }
 

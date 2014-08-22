@@ -9,8 +9,12 @@
 #import "CommentsViewController.h"
 #import "Event.h"
 #import "Photo.h"
+#import "UserProfileViewController.h"
 
 #define CommentCell @"CommentCell"
+
+// segue
+#define showUserProfileSegue @"showUserProfileSegue"
 
 @interface CommentsViewController () <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -174,6 +178,14 @@
 	[self postComment];
 }
 
+- (IBAction)onUserImageButtonTapped:(UIButton *)sender
+{
+	UITableViewCell *cell = (UITableViewCell *)sender.superview;
+	NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+	Event *comment = self.comments[indexPath.row];
+	[self performSegueWithIdentifier:showUserProfileSegue sender:comment.origin];
+}
+
 #pragma mark - Helper methods
 
 - (void)performQuery
@@ -194,6 +206,17 @@
 			NSLog(@"Error getting comments for photo %@ - %@ %@", self.photo, error, error.userInfo);
 		}
 	}];
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(PFUser *)sender
+{
+	if ([segue.identifier isEqualToString:showUserProfileSegue]) {
+		UserProfileViewController *userProfileVC = segue.destinationViewController;
+		userProfileVC.user = sender;
+		userProfileVC.hidesBottomBarWhenPushed = YES;
+	}
 }
 
 - (void)setViewRoundCorners:(UIView *)view
